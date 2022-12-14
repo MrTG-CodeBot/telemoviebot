@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://telegra.ph/file/e265ed0a09295c6077f39.jpg" alt="Elsa">
+  <img src="https://telegra.ph/file/67a238112341dc2da77d9.jpg" alt="Sakura">
 </p>
 <h1 align="center">
-  <b>Elsa</b>
+  <b>𝚂𝚊𝚔𝚞𝚛𝚊</b>
 </h1>
 
-<a href="https://t.me/cinemala_com1">
+<a href="https://t.me/Unni0240">
   <img src="https://img.shields.io/badge/Join-blue?logo=telegram" width="70">
 
 [![Stars](https://img.shields.io/github/stars/Devil-Botz/Elsa?style=flat-square&color=yellow)](https://github.com/Devil-Botz/Elsa/stargazers)
