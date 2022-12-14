@@ -16,8 +16,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/Devil-Botz/Elsa",
-    "repository": "https://github.com/Devil-Botz/Elsa",
+    "website": "https://github.com/sakuratanjiro/sakuraa",
+    "repository": "https://github.com/sakuratanjiro/sakuraa.git",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
