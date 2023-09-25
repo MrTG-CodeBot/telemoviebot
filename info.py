@@ -48,12 +48,12 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
-PICS = (environ.get('PICS', 'https://telegra.ph/file/2992a480cae2bc0de1c39.jpg https://telegra.ph/file/76e7b5e94430b84a3d2b2.jpg https://telegra.ph/file/3544a8773740b0412c9dd.jpg https://telegra.ph/file/4b1c7004ea8bd3fed8df9.jpg https://telegra.ph/file/a02e47d932adc336740fa.jpg')).split()
-NOR_IMG = environ.get('NOR_IMG', "https://telegra.ph/file/9c4b29ca1ec39cd1d3b12.jpg")
+PICS = (environ.get('PICS', 'https://telegra.ph/file/67a238112341dc2da77d9.jpg')).split()
+NOR_IMG = environ.get('NOR_IMG', "https://telegra.ph/file/67a238112341dc2da77d9.jpg")
 SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/b58f576fed14cd645d2cf.jpg")
 
 # Welcome area
-MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/8d859f8d1f5efd6c16129.jpg")
+MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/67a238112341dc2da77d9.jpg")
 MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph//file/eafdc365feaf11d2c9dc6.mp4")
 
 
@@ -87,7 +87,7 @@ DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 PORT = os.environ.get("PORT", "8080")
 MAX_BTN = int(environ.get('MAX_BTN', "10"))
 S_GROUP = environ.get('S_GROUP',"https://t.me/amal_nath_05")
-MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/sakura_movies")
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/sakura_movies_1")
 FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+JSy15oYB0YFhMWM1")
 MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', '-1001665535631'))
