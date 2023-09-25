@@ -41,9 +41,9 @@ class evamaria(Client):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ('API_ID',''))
-API_HASH = environ('API_HASH','')
-BOT_TOKEN = environ('BOT_TOKEN','')
+API_ID = int(environ('API_ID','8914119'))
+API_HASH = environ('API_HASH','652bae601b07c928b811bdb310fdb4b0')
+BOT_TOKEN = environ('BOT_TOKEN','6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -59,8 +59,8 @@ MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph//file/eafdc365feaf11d2
 
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1342641151').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001665535631').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
@@ -75,10 +75,10 @@ TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Elsa")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://amalnath0600:arya@cluster0.vc1msdj.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp")
+DATABASE_NAME = environ.get('DATABASE_NAME', "")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
-MONGO_URL = os.environ.get('MONGO_URL', "")
+MONGO_URL = os.environ.get('MONGO_URL', "amalnath0600")
 
 #Downloader
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
@@ -90,13 +90,13 @@ S_GROUP = environ.get('S_GROUP',"https://t.me/amal_nath_05")
 MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/sakura_movies")
 FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+JSy15oYB0YFhMWM1")
 MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
-FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
+FILE_CHANNEL = int(environ.get('FILE_CHANNEL', '-1001665535631'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001947924720'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'amal_nath_05')
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
-IMDB = is_enabled((environ.get('IMDB', "True")), True)
-SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
+IMDB = is_enabled((environ.get('IMDB', "False")), False)
+SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CUSTOM_FILE_CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", f"{script.IMDB_TEMPLATE_TXT}")
