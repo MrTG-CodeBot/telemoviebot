@@ -241,12 +241,12 @@ This module only works for my admins
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
-Elsa
+Sakura
 """
     LOG_TEXT_P = """#NewUser
 ID - <code>{}</code>
 Name - {}
-Elsa
+Sakura
 """
     FILE_MSG = """
 <b>Hai 👋 {} </b>😍
@@ -290,8 +290,6 @@ Elsa
 
     CUSTOM_FILE_CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
 
-
-
 ╔════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗
 ▫️<a href=https://t.me/sakura_movies_1> sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ </a>
 ╚════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝</b>"""
@@ -302,11 +300,7 @@ Elsa
 ⏰Tɪᴍᴇ : <code>{}</code>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code></b>"""
 
-    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️
-
-Christmas is most truly Christmas when we celebrate it by giving the light of love to those who need it most.
-
-Merry Christmas ❄️ and Happy New Year 🎇</b>"""
+    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️</b>"""
 
     ALRT_TXT = """𝚃𝙷𝙰𝚃 𝙸𝚂 𝙽𝙾𝚃 𝙵𝙾𝚁 𝚈𝙾𝚄 𝚂𝙸𝚁 @ᴄᴄᴏᴍ_ᴛᴇᴀᴍ"""
 
