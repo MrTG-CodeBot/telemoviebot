@@ -54,7 +54,7 @@ SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/b58f576fed14cd645d2
 
 # Welcome area
 MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/67a238112341dc2da77d9.jpg")
-MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph//file/eafdc365feaf11d2c9dc6.mp4")
+MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph/file/c3d0547a2cbd37abfe04b.mp4")
 
 
 
@@ -93,7 +93,7 @@ MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', '-1001958970727'))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001947924720'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'amal_nath_05')
-AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
+AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "False")), False)
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
