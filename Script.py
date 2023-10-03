@@ -1,7 +1,7 @@
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ {user}.
+    START_TXT = """<b>Hᴇʟʟᴏ {}.
 
-Mʏ Nᴀᴍᴇ Is {bot}.
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>.
 
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
     
@@ -264,9 +264,9 @@ This module only works for my admins
 
 <b>© Powered by {}</b>
 """
-    SUR_TXT = """<b>✨ Hᴇʟʟᴏ {user}.
+    SUR_TXT = """<b>✨ Hᴇʟʟᴏ {}.
 
-Mʏ Nᴀᴍᴇ Is {bot}.
+Mʏ Nᴀᴍᴇ Is {<a href=https://t.me/{}>{}</a>}.
 
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
 
