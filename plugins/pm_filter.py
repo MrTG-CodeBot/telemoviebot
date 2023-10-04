@@ -569,10 +569,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-   elif query.data == "about" :
+        
+   elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('sᴛᴀᴛᴜs', callback_data='stats')
-        ], [
+        ],[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
