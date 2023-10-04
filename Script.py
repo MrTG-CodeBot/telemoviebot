@@ -137,9 +137,9 @@ This module only works for my admins
 
 <b>© Powered by {}</b>
 """
-    SUR_TXT = """<b>✨ Hᴇʟʟᴏ {}.
+    SUR_TXT = """<b>Hᴇʟʟᴏ {}.
 
-Mʏ Nᴀᴍᴇ Is {<a href=https://t.me/{}>{}</a>}.
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>.
 
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
 
