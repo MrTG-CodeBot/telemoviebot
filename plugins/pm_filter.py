@@ -550,7 +550,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         await query.answer(MSG_ALRT)
-   elif query.data == "help":
+    elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('⚒ ᴍᴀɴɴᴜʟ ғɪʟᴛᴇʀ', callback_data='manuelfilter'),
             InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat='') 
@@ -579,7 +579,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         
-   elif query.data == "about":
+    elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('sᴛᴀᴛᴜs', callback_data='stats')
         ],[
