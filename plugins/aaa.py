@@ -1,12 +1,6 @@
 from pyrogram import Client, filters
 
-api_id = "your_api_id"
-api_hash = "your_api_hash"
-bot_token = "your_bot_token"
-
-app = Client("my_bot", api_id, api_hash, bot_token=bot_token)
-
-@app.on_message(filters.command("clone") & filters.private)
+@Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
     if len(message.command) < 2:
         await message.reply_text("Please provide a username to clone.")
@@ -20,5 +14,3 @@ async def clone(client, message):
         await message.reply_text(f"Successfully cloned {user.username}!")
     except Exception as e:
         await message.reply_text(f"Error: {e}")
-
-app.run()
