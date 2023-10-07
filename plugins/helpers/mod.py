@@ -3,7 +3,7 @@ from pyrogram.types import Message
 
 # Import your command handlers
 from start import start_handler
-from cloner import cloner_handler
+from clone import cloner_handler
 
 app = Client("my_bot")
 
