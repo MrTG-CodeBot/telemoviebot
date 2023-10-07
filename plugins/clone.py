@@ -1,7 +1,7 @@
 from pyrogram import Client
 from pyrogram import filters
 
-from config import config  # Assuming you have a config file with your settings
+from config import logging.conf  # Assuming you have a config file with your settings
 from helpers import gen_bot
 
 app = Client("my_bot", api_id=config.API_ID, api_hash=config.API_HASH, bot_token=config.BOT_TOKEN)
