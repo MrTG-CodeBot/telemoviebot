@@ -105,6 +105,9 @@ This module only works for my admins
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
 ◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
 
+    CLONE_TXT = """
+◉ <b>Adding soon or Not
+◉ Click /clone to use this function</b>"""
 
     LOG_TEXT_G = """<b>#ɴᴇᴡ_ɢʀᴏᴜᴩ
 
