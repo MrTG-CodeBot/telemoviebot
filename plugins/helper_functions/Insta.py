@@ -3,13 +3,12 @@ import os
 import time
 import requests  # Add this import
 
-app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
-
-@app.on_message(filters.command("start"))
+Client("my_bot")
+@Client.on_message(filters.command("start"))
 def start_command(client, message):
     message.reply_text("Welcome to the Instagram Reels Downloader Bot!")
 
-@app.on_message(filters.command("download"))
+@Client.on_message(filters.command("download"))
 def download_command(client, message):
     url = message.text.split(" ")[1]
 
