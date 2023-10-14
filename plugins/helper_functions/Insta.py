@@ -45,6 +45,3 @@ def download_command(client, message):
     except Exception as e:
         progress_message.edit_text(f"An error occurred: {str(e)}")
 
-# Start the client
-Bot()
-Bot.run()
