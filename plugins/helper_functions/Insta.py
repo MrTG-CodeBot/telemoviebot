@@ -32,7 +32,7 @@ def download_command(client, message):
     except Exception as e:
         progress_message.edit_text(f"An error occurred: {str(e)}")
 
-@app.on_message(filters.command("create"))
+@Client.on_message(filters.command("create"))
 def create_command(client, message):
     try:
         progress_message = message.reply_text("Creating Reels...")
