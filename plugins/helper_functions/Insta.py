@@ -4,7 +4,7 @@ import os
 from info import API_ID,API_ID,BOT_TOKEN
 
 # Create a new Pyrogram client
-Client("my_bot")
+app = Bot = Client("my_bot")
 
 # Define the command handler for the '/start' command
 @Client.on_message(filters.command("start"))
@@ -46,4 +46,5 @@ def download_command(client, message):
         progress_message.edit_text(f"An error occurred: {str(e)}")
 
 # Start the client
+app = Bot()
 app.run()
