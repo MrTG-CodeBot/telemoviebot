@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 import requests
 import os
 from info import API_ID,API_ID,BOT_TOKEN
+from datetime import date, datetime 
 
 # Create a new Pyrogram client
 Bot = Client("my_bot")
