@@ -563,7 +563,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
             InlineKeyboardButton('ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-            InlineKeyboardButton('ᴄʟᴏɴᴇ',callback_data='clone')
+            InlineKeyboardButton('check ott',callback_data='clone')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
