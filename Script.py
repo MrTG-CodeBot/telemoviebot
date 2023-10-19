@@ -106,8 +106,11 @@ This module only works for my admins
 ◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
 
     CLONE_TXT = """
-◉ <b>Adding soon or Not
-◉ Click /clone to use this function</b>"""
+◉  Welcome to the Movie OTT Release Checker Bot!\n\n
+◉  You can use the following commands:\n
+◉  /checkott [Movie Title]: Check if a movie is available on an OTT platform.\n
+◉  Please provide the movie title with the `/checkott` command to check for OTT availability.
+    """
 
     LOG_TEXT_G = """<b>#ɴᴇᴡ_ɢʀᴏᴜᴩ
 
