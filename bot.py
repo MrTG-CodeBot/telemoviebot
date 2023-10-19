@@ -20,7 +20,7 @@ from Script import script
 from datetime import date, datetime 
 import pytz
 from aiohttp import web
-from aiohttp import web_server
+
 
 class Bot(Client):
 
