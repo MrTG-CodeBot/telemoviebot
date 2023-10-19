@@ -1,5 +1,7 @@
 from aiohttp import web
 from .route import routes
+from httpcore import NetworkBackend
+
 
 
 async def web_server():
