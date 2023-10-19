@@ -1,6 +1,6 @@
 from aiohttp import web
 from .route import routes
-from httpcore import NetworkBackend
+from NetworkBackend import httpcore
 
 
 
