@@ -22,7 +22,6 @@ import pytz
 import aiohttp
 from aiohttp import web
 from aiohttp import web_server
-from .route import routes
 
 
 class Bot(Client):
