@@ -4,7 +4,7 @@ import requests
 from info import OMDB_API_KEY
 
 # Define a command to check OTT release
-@app.on_message(filters.command("checkott"))
+@Client.on_message(filters.command("checkott"))
 async def check_ott_release(_, message):
     # Get the movie title from the user's command
     if len(message.command) < 2:
