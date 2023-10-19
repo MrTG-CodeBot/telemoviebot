@@ -21,7 +21,6 @@ from datetime import date, datetime
 import pytz
 import aiohttp
 from aiohttp import web
-import web
 from aiohttp import web_server
 
 
