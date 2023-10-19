@@ -16,7 +16,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
-from plugins import clone
+from plugins import check_ott
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import (
     del_all,
@@ -562,8 +562,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🎛 ᴇxᴛʀᴀ ᴍᴏᴅs', callback_data='extra'),
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
-            InlineKeyboardButton('ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-            InlineKeyboardButton('check ott',callback_data='clone')
+            InlineKeyboardButton('😈 ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
+            InlineKeyboardButton('🎫 ᴄʜᴇᴄk ᴏᴛᴛ',callback_data='clone')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
