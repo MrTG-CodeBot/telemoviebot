@@ -14,7 +14,7 @@ async def check_ott_release(_, message):
     movie_title = " ".join(message.command[1:])
 
     # Send a request to the OMDb API to retrieve movie information
-    omdb_url = f"http://www.omdbapi.com/?t={movie_title}&apikey={omdb_api_key}"
+    omdb_url = f"http://www.omdbapi.com/?t={movie_title}&apikey=42d8ac83"
     response = requests.get(omdb_url)
 
     if response.status_code == 200:
