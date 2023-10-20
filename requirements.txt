@@ -1,4 +1,5 @@
 pyrogram>=2.0.30
+openai==0.27.0
 tgcrypto
 pymongo[srv]==3.12.3
 motor==2.5.1
