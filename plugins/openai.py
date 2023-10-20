@@ -1,6 +1,8 @@
 from pyrogram import Client, filters
 import openai
-from info.openai_api_key import openai_api_key
+from info import OPENAI_API_KEY
+
+OPENAI_API_KEY = "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"
 
 # Define a filter to handle the /ai command
 @Client.on_message(filters.command("ai", prefixes="/"))
@@ -18,7 +20,7 @@ def generate_response_with_gpt3(user_input):
     response = openai.Completion.create(
         engine="davinci",
         prompt=user_input,
-        max_tokens=150,  # Adjust the response length as needed
+        max_tokens=2000,  # Adjust the response length as needed
     )
     return response.choices[0].text
 
