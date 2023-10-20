@@ -21,15 +21,28 @@ async def check_ott_release(_, message):
         data = response.json()
         if data.get("Response", "").lower() == "true":
             title = data.get("Title", "N/A")
+            plot = data.get("Plot", "No plot available.")
+            released = data.get("Released", "N/A")
+            ratings = data.get("Ratings", [])
             ott_platform = data.get("Website", "N/A")
-            if ott_platform == "N/A":
-                ott_status = "Not available on any OTT platform."
-            else:
-                ott_status = f"Available on {ott_platform}."
 
-            ott_release_message = f"{title}:\n{ott_status}"
-            await message.reply_text(ott_release_message)
+            ott_status = f"Title: {title}\nReleased: {released}\nPlot: {plot}"
+
+            if ott_platform == "N/A":
+                ott_status += "\nNot available on any OTT platform."
+            else:
+                ott_status += f"\nAvailable on {ott_platform}."
+
+            if ratings:
+                ott_status += f"\nRatings:"
+                for rating in ratings:
+                    source = rating.get("Source", "N/A")
+                    value = rating.get("Value", "N/A")
+                    ott_status += f"\n- {source}: {value}"
+
+            await message.reply_text(ott_status)
         else:
             await message.reply_text("Movie not found. Please check the movie title.")
     else:
         await message.reply_text("An error occurred while fetching movie data. Please try again later.")
+
