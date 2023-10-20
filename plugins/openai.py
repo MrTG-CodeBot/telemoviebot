@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import openai
-from info import openai.api_key
+from info import OPEN_API_KEY
 
 # Define a filter to handle the /ai command
 @Client.on_message(filters.command("ai", prefixes="/"))
