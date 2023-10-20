@@ -4,6 +4,8 @@ from info import OPENAI_API_KEY
 
 # Define your OpenAI API key
 OPENAI_API_KEY = "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"
+OPENAI_ORGANIZATION = "org-1KWuVrdSyt25Vfvs8rvS3ofB"
+openai.Model.list()
 
 # Function to generate a response using GPT-3
 def generate_response_with_gpt3(user_input):
