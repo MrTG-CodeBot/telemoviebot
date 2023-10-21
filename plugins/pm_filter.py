@@ -563,7 +563,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
             InlineKeyboardButton('😈 ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-            InlineKeyboardButton('🎫 ᴄʜᴇᴄk ᴏᴛᴛ',callback_data='clone')
+            InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
@@ -695,14 +695,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "clone":
+    elif query.data == "genre":
         buttons = [[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.CLONE_TXT.format(temp.B_NAME),
+            text=script.GENRE_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
