@@ -695,7 +695,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-     if query.data == "sakura":
+    elif query.data == "sakura":
         buttons = [[
             InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre'),
             InlineKeyboardButton('🎟 ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs', callback_data='upcomingmovies')
@@ -705,7 +705,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.SAKURA_TXT.format(temp.B_NAME),
+            text=script.SAKURA_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -716,7 +716,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.GENRE_TXT.format(temp.B_NAME),
+            text=script.GENRE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -727,7 +727,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.UPCOMINGMOVIES_TXT.format(temp.B_NAME),
+            text=script.UPCOMINGMOVIES_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
        )
