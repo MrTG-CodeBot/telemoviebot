@@ -114,10 +114,10 @@ This module only works for my admins
 
 ◉ sᴇᴀʀᴄʜ ᴍᴏᴠɪᴇs ʙʏ ɢᴇɴʀᴇ:
 ᴛᴏ ᴅɪsᴄᴏᴠᴇʀ ᴍᴏᴠɪᴇs ɪɴ ʏᴏᴜʀ ғᴀᴠᴏʀɪᴛᴇ ɢᴇɴʀᴇ, ᴜsᴇ ᴛʜᴇ `/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ` ᴄᴏᴍᴍᴀɴᴅ ғᴏʟʟᴏᴡᴇᴅ ʙʏ ᴛʜᴇ ɢᴇɴʀᴇ ʏᴏᴜ'ʀᴇ ɪɴᴛᴇʀᴇsᴛᴇᴅ ɪɴ. ғᴏʀ ᴇxᴀᴍᴘʟᴇ, ʏᴏᴜ ᴄᴀɴ ᴛʏᴘᴇ:
-`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ love`
-`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ anime`
-`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ cartoon`
-`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ science`
+`/search_genre love`
+`/search_genre anime`
+`/search_genre cartoon`
+`/search_genre science`
 ◉ ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴏᴍᴇ ʟɪᴍɪᴛᴇᴅ ɴᴜᴍʙᴇʀ ᴏғ ɢᴇɴʀᴇ"""
 
     UPCOMINGMOVIES_TXT = """
