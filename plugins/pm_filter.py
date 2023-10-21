@@ -709,7 +709,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-     if query.data == "genre":
+    if query.data == "genre":
         buttons = [[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='sakura'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
