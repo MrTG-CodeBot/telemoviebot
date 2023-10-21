@@ -117,17 +117,19 @@ This module only works for my admins
 `/search_genre love`
 `/search_genre anime`
 ◉ ᴡᴇ ᴡɪʟʟ ꜱᴇɴᴅ ᴀ ʟɪꜱᴛ ᴏғ ɢᴇɴʀᴇ , ʙᴇᴄᴀᴜꜱᴇ ᴏᴛʜᴇʀ ɢᴇɴʀᴇꜱ ʟɪᴋᴇ ᴀᴄᴛɪᴏɴ, ᴄᴏᴍᴇᴅʏ, ᴅʀᴀᴍᴀ, ᴇᴛᴄ ᴀʀᴇ ɴᴏᴛ ᴡᴏʀᴋ.
-ᴡᴇ ᴡɪʟʟ ꜱᴇɴᴅ ᴛʜᴇ ʟɪꜱᴛ ᴛᴏ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:-https://t.me/amal_nath_05"""
+ᴡᴇ ᴡɪʟʟ ꜱᴇɴᴅ ᴛʜᴇ ʟɪꜱᴛ ᴛᴏ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:-https://t.me/amal_nath_05
+
+credits:-<a href=https://t.me/Unni0240>ᴍʀ.ʙᴏᴛ ᴛɢ</a>"""
 
     UPCOMINGMOVIES_TXT = """
 ◉ ʜᴇʀᴇ's ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴛʜᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 
-/upcoming_movies: ɢᴇᴛ ᴀ ʟɪsᴛ ᴏғ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇ ʀᴇʟᴇᴀsᴇs.(incomplete)
+/upcoming_movies: ɢᴇᴛ ᴀ ʟɪsᴛ ᴏғ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇ ʀᴇʟᴇᴀsᴇs.
 
 ◉ ᴇxᴀᴍᴘʟᴇ ᴜsᴀɢᴇ:
-ᴛᴏ sᴇᴇ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs ɪɴ ᴛʜᴇ ᴜɴɪᴛᴇᴅ sᴛᴀᴛᴇs, ᴜsᴇ: /upcoming_movies
-ᴛᴏ ᴠɪᴇᴡ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs ɪɴ ᴄᴀɴᴀᴅᴀ, sᴇᴛ 'sᴇʟᴇᴄᴛᴇᴅ_ʀᴇɢɪᴏɴ' ᴛᴏ 'ᴄᴀɴᴀᴅᴀ' ɪɴ ᴛʜᴇ ᴄᴏᴅᴇ.
-ᴇɴᴊᴏʏ ᴇxᴘʟᴏʀɪɴɢ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs!"""
+ᴛᴏ sᴇᴇ ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs ᴜsᴇ: /upcoming_movies
+
+@credits:- <a href=https://t.me/Unni0240>ᴍʀ.ʙᴏᴛ ᴛɢ</a>"""
 
     LOG_TEXT_G = """<b>#ɴᴇᴡ_ɢʀᴏᴜᴩ
 
