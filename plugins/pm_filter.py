@@ -554,7 +554,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('⚒ ᴍᴀɴɴᴜʟ ғɪʟᴛᴇʀ', callback_data='manuelfilter'),
-            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat='') 
+            InlineKeyboardButton("🔎 Sᴇᴀʀᴄʜ", switch_inline_query_current_chat='') 
             ],[
             InlineKeyboardButton('🔨 ᴀᴜᴛᴏ ғɪʟᴛᴇʀ', callback_data='autofilter'),
             InlineKeyboardButton('⛓ ᴄᴏɴɴᴇᴄᴛɪᴏɴ', callback_data='coct')
@@ -563,7 +563,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
             InlineKeyboardButton('😈 ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-              InlineKeyboardButton('sakura update',callback_data='sakura')
+            InlineKeyboardButton('⚙️ ꜱᴀᴋᴜʀᴀ ᴜᴘᴅᴀᴛᴇe',callback_data='sakura')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
@@ -698,7 +698,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
      elif query.data == "sakura":
         buttons = [[
             InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre'),
-            InlineKeyboardButton('upcoming movies', callback_data='upcomingmovies')
+            InlineKeyboardButton('🎟 ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs', callback_data='upcomingmovies')
             ],[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='help'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
