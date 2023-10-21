@@ -1,7 +1,26 @@
 from pyrogram import Client, filters
 from imdb import IMDb
-from info import API_ID,API_HASH,BOT_TOKEN
-from plugins import genre_list
+from info import API_ID, API_HASH, BOT_TOKEN
+
+# List of Movie Genres
+movie_genres = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Mystery",
+    "Romance",
+    "Science Fiction",
+    "Thriller",
+    "War",
+    "Western",
+]
 
 # Initialize IMDbPY
 ia = IMDb()
@@ -9,18 +28,27 @@ ia = IMDb()
 @Client.on_message(filters.command("search_genre"))
 async def search_genre(client, message):
     # Extract the user's query
-    genre = message.text.split(" ", 1)[1]
+    user_input = message.text.split(" ", 1)[1]
 
-    # Search for movies by genre using IMDbPY
-    movies = ia.get_keyword(genre)
+    # Check if the user's input matches a valid genre
+    genre = None
+    for valid_genre in movie_genres:
+        if user_input.lower() in valid_genre.lower():
+            genre = valid_genre
+            break
 
-    # Extract and format the results
-    if movies:
-        movie_list = "\n".join(movie["title"] for movie in movies)
-        response = f"Movies in the {genre} genre:\n{movie_list}"
+    if genre:
+        # Search for movies by genre using IMDbPY
+        movies = ia.get_keyword(genre)
+
+        # Extract and format the results
+        if movies:
+            movie_list = "\n".join(movie["title"] for movie in movies)
+            response = f"**Movies in the {genre} genre:\n{movie_list}**"
+        else:
+            response = f"**No movies found in the {genre} genre.**"
     else:
-        response = f"No movies found in the {genre} genre."
+        response = "**Invalid genre. Please choose from the following genres:\n**" + "\n".join(movie_genres)
 
     # Send the response to the user
     await message.reply(response)
-
