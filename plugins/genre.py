@@ -1,7 +1,6 @@
 from pyrogram import Client, filters
 from imdb import IMDb
-import movie_genre
-from info import API_ID, API_HASH, BOT_TOKEN
+from info import API_ID, API_HASH, BOT_TOKEN,TMDB_API_KEY
 
 # Initialize IMDbPY
 ia = IMDb()
