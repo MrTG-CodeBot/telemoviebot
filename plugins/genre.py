@@ -12,7 +12,7 @@ async def search_genre(client, message):
 
     # Check if the user's input matches a valid genre
     genre = None
-    for valid_genre in movie_genres:
+    for valid_genre in movie_genre:
         if user_input.lower() in valid_genre.lower():
             genre = valid_genre
             break
