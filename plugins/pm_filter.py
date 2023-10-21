@@ -709,7 +709,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    if query.data == "genre":
+    elif query.data == "genre":
         buttons = [[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='sakura'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
@@ -720,7 +720,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-     elif query.data == "upcomingmovies":
+    elif query.data == "upcomingmovies":
         buttons = [[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='sakura'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
