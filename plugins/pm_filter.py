@@ -563,7 +563,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
             InlineKeyboardButton('😈 ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-            InlineKeyboardButton('⚙️ ꜱᴀᴋᴜʀᴀ ᴜᴘᴅᴀᴛᴇe',callback_data='sakura')
+            InlineKeyboardButton('⚙️ ꜱᴀᴋᴜʀᴀ ᴜᴘᴅᴀᴛᴇ',callback_data='sakura')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
@@ -695,7 +695,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-     elif query.data == "sakura":
+     if query.data == "sakura":
         buttons = [[
             InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre'),
             InlineKeyboardButton('🎟 ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs', callback_data='upcomingmovies')
