@@ -105,12 +105,16 @@ This module only works for my admins
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
 ◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
 
-    CLONE_TXT = """
-◉  Welcome to the Movie OTT Release Checker Bot!\n\n
-◉  You can use the following commands:\n
-◉  /checkott [Movie Title]: Check if a movie is available on an OTT platform.\n
-◉  Please provide the movie title with the `/checkott` command to check for OTT availability.
-    """
+    GENRE_TXT = """
+ʏᴏᴜ ᴄᴀɴ ᴇᴀsɪʟʏ ғɪɴᴅ ᴍᴏᴠɪᴇs ʙʏ ɢᴇɴʀᴇ, ʜᴇʀᴇ's ʜᴏᴡ ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ:
+
+◉ sᴇᴀʀᴄʜ ᴍᴏᴠɪᴇs ʙʏ ɢᴇɴʀᴇ:
+ᴛᴏ ᴅɪsᴄᴏᴠᴇʀ ᴍᴏᴠɪᴇs ɪɴ ʏᴏᴜʀ ғᴀᴠᴏʀɪᴛᴇ ɢᴇɴʀᴇ, ᴜsᴇ ᴛʜᴇ `/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ` ᴄᴏᴍᴍᴀɴᴅ ғᴏʟʟᴏᴡᴇᴅ ʙʏ ᴛʜᴇ ɢᴇɴʀᴇ ʏᴏᴜ'ʀᴇ ɪɴᴛᴇʀᴇsᴛᴇᴅ ɪɴ. ғᴏʀ ᴇxᴀᴍᴘʟᴇ, ʏᴏᴜ ᴄᴀɴ ᴛʏᴘᴇ:
+`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ love`
+`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ anime`
+`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ cartoon`
+`/sᴇᴀʀᴄʜ_ɢᴇɴʀᴇ science`
+◉ ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴏᴍᴇ ʟɪᴍɪᴛᴇᴅ ɴᴜᴍʙᴇʀ ᴏғ ɢᴇɴʀᴇ"""
 
     LOG_TEXT_G = """<b>#ɴᴇᴡ_ɢʀᴏᴜᴩ
 
