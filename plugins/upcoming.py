@@ -35,7 +35,7 @@ headers = {
     "accept": "application/json",
     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGQ1OGRjZDBjY2JlMTkzNDBhYTE0M2RhZjRjNmFkMCIsInN1YiI6IjY1MzM4ODJjOTFmMGVhMDBjNDIyMTk0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dG-TfbI8hwDlXJwSVqPh86pzrVycmkeKrWL6a3g1q6s"
 }    
-    today = datetime.date.today()
+   today = datetime.date.today()
     next_month = today + datetime.timedelta(days=30)  # Get movies for the next 30 days
 
     response = requests.get(base_url, params=params)
