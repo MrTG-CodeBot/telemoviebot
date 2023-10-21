@@ -31,7 +31,7 @@ async def upcoming_movies(client, message):
             message_text = f"Upcoming Movie Releases in {selected_region} (Page {current_page}/{total_pages}):\n"
             for movie in page_movies:
                 formatted_date = format_date(movie['release_date'])
-                message_text += f"{movie['title']} - {formatted_date}\n"
+                message_text += f"{movie['title']} - {formatted_date}\n\n"
 
             # Send the message for the current page
             await message.reply_text(message_text)
