@@ -24,11 +24,11 @@ async def search_genre(client, message):
         # Extract and format the results
         if movies:
             movie_list = "\n".join(movie["title"] for movie in movies)
-            response = f"**Movies in the {genre} genre:\n{movie_list}**"
+            response = f"Movies in the {genre} genre:\n{movie_list}"
         else:
-            response = f"**No movies found in the {genre} genre.**"
+            response = f"No movies found in the {genre} genre."
     else:
-        response = "**Invalid genre. Please choose from the following genres:\n**" + "\n".join(movie_genres)
+        response = "Invalid genre. Please choose from the following genres:\n" + "\n".join(movie_genres)
 
     # Send the response to the user
     await message.reply(response)
