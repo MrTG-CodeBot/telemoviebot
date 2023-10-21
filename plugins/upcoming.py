@@ -6,44 +6,26 @@ from info import TMDB_API_KEY
 # Define the /upcomingmovies command to show upcoming movie releases
 @Client.on_message(filters.command("upcoming_movies"))
 async def upcoming_movies(_, message):
-    # Fetch upcoming movies from TMDb API for a selected region
-    selected_region = "United States"  # Replace with the desired region
-    upcoming_movies = get_upcoming_movies(selected_region)
+    # Fetch upcoming movies from TMDb API
+    upcoming_movies = get_upcoming_movies()
     
     if upcoming_movies:
         # Generate a message with upcoming movie details
-        message_text = f"Upcoming Movie Releases in {selected_region}:\n"
+        message_text = "Upcoming Movie Releases:\n"
         for movie in upcoming_movies:
             message_text += f"{movie['title']} - {movie['release_date']}\n"
         
         await message.reply_text(message_text)
     else:
-        await message.reply_text(f"No upcoming movies found in {selected_region}.")
+        await message.reply_text("No upcoming movies found.")
 
-# Function to get upcoming movies using TMDb API for a selected region
-def get_upcoming_movies(selected_region):
-    # Map the selected region to its TMDb region code
-    regions = {
-        "United States": "US",
-        "United Kingdom": "GB",
-        "Canada": "CA",
-        "Australia": "AU",
-        "India": "IN",
-        "Germany": "DE",
-        "France": "FR",
-        "Japan": "JP",
-    }
-
-    if selected_region in regions:
-        tmdb_region_code = regions[selected_region]
-    else:
-        return []  # Return an empty list if the region is not found in the mapping
-
+# Function to get upcoming movies using TMDb API
+def get_upcoming_movies():
     base_url = "https://api.themoviedb.org/3/movie/upcoming"
     params = {
         "api_key": TMDB_API_KEY,
-        "language": "en-US",
-        "region": tmdb_region_code
+        "language": "en-IN",
+        "region": "IN"  # Adjust the region as needed
     }
 
     today = datetime.date.today()
