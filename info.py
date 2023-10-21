@@ -45,6 +45,7 @@ API_ID = int(os.environ.get('API_ID', '8914119'))
 API_HASH = os.environ.get('API_HASH', '652bae601b07c928b811bdb310fdb4b0')
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
 TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
+OMDB_API_KEY = os.environ.get('42d8ac83')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
