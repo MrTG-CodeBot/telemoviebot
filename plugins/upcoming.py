@@ -42,7 +42,7 @@ async def upcoming_movies(client, message):
 
 # Function to get upcoming movies using TMDb API for a selected region
 def get_upcoming_movies(selected_region):
-    base_url = "https://api.themoviedb.org/3/movie/upcoming"
+    base_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=b0d58dcd0ccbe19340aa143daf4c6ad0"
     params = {
         "api_key": TMDB_API_KEY,
         "language": "en-IN",  # Adjust the language code as needed
