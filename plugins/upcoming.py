@@ -1,10 +1,10 @@
 import datetime
 from pyrogram import Client, filters
 import requests
-from info import TMDB_API_ID
+from info import TMDB_API_KEY
 
 # Define the /upcomingmovies command to show upcoming movie releases
-@app.on_message(filters.command("upcomingmovies"))
+@app.on_message(filters.command("upcoming_movies"))
 async def upcoming_movies(_, message):
     # Fetch upcoming movies from TMDb API for a selected region
     selected_region = "United States"  # Replace with the desired region
