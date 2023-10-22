@@ -97,3 +97,45 @@ def bot_status(client, message):
     bot_info += f"CPU Usage: {psutil.cpu_percent(interval=1)}%\n"
     bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
     message.reply_text(bot_info)
+
+# User Statistics command
+@Client.on_message(filters.command("mystats") & filters.user(authorized_users))
+def user_statistics(client, message):
+    user_id = message.from_user.id
+    results = db.search(Query().user_id == user_id)
+    if results:
+        stats = "Your code execution history:\n"
+        for entry in results:
+            code = entry.get("code")
+            result = entry.get("result")
+            stats += f"Code:\n{code}\nResult:\n{result}\n\n"
+        message.reply_text(stats)
+    else:
+        message.reply_text("No code execution history found for you.")
+
+# Admin User Statistics command
+@Client.on_message(filters.command("userstats") & filters.user(admin_users))
+def admin_user_statistics(client, message):
+    user_id = int(message.command[1])
+    results = db.search(Query().user_id == user_id)
+    if results:
+        stats = f"Code execution history for User ID {user_id}:\n"
+        for entry in results:
+            code = entry.get("code")
+            result = entry.get("result")
+            stats += f"Code:\n{code}\nResult:\n{result}\n\n"
+        message.reply_text(stats)
+    else:
+        message.reply_text(f"No code execution history found for User ID {user_id}.")
+
+# User Assistance command
+@Client.on_message(filters.command("helper") & filters.user(authorized_users))
+def user_assistance(client, message):
+    1342641151 = admin_users[0]  # Replace with the actual admin chat ID
+    if len(message.command) >= 2:
+        issue = " ".join(message.command[1:])
+        assistance_request = f"User {message.from_user.id} requests assistance:\n{issue}"
+        client.send_message(chat_id=admin_chat_id, text=assistance_request)
+        message.reply_text("Your assistance request has been sent to the admin team. They will get back to you.")
+    else:
+        message.reply_text("Usage: /helper [issue description]")
