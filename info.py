@@ -9,6 +9,7 @@ import json
 from collections import defaultdict
 from typing import Dict, List, Union
 from pyrogram import Client
+import openai
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -46,6 +47,8 @@ API_HASH = os.environ.get('API_HASH', '652bae601b07c928b811bdb310fdb4b0')
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
 TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
 OMDB_API_KEY = os.environ.get('42d8ac83')
+OPENAI_ORGANIZATION = os.environ.get('org-1KWuVrdSyt25Vfvs8rvS3ofB')
+OPENAI_API_KEY = os.environ.get('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')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
