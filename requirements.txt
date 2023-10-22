@@ -18,6 +18,7 @@ requests
 aiohttp==3.8.0
 tox ~= 4.4
 Pygments==2.16.1
+tinydb 4.8.0
 gTTS
 googletrans==3.1.0a0
 telegraph
