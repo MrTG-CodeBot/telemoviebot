@@ -88,3 +88,12 @@ def retrieve_history(client, message):
             message.reply_text(f"Code:\n{code}\nResult:\n{result}\n")
     else:
         message.reply_text("No code execution history found for you.")
+
+# Bot Status command
+@Client.on_message(filters.command("sakura") & filters.user(admin_users))
+def bot_status(client, message):
+    uptime = str(timedelta(seconds=psutil.boot_time()))
+    bot_info = f"Bot Uptime: {uptime}\n"
+    bot_info += f"CPU Usage: {psutil.cpu_percent(interval=1)}%\n"
+    bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
+    message.reply_text(bot_info)
