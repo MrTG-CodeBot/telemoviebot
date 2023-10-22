@@ -10,8 +10,6 @@ RUN pip install -r requirements.txt
 
 RUN pip install web
 
-RUN pip install openai
-
 RUN pip install --upgrade pip
 
 COPY ..
