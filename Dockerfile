@@ -10,6 +10,7 @@ RUN pip install -r requirements.txt
 
 RUN pip install pygments
 
+RUN pip install tinydb
 
 RUN pip install web
 
