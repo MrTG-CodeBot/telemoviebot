@@ -104,6 +104,10 @@ This module only works for my admins
 ◉ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ: <code>{}</code>
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
 ◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
+    
+    UPTIME_TXT = """<b>◉ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ: <code>{}</code>
+◉ ᴄᴘᴜ ᴜꜱᴀɢᴇ: <code>{}</code>
+◉ ʀᴀᴍ ᴜꜱᴀɢᴇ: <code>{}</code></b>"""
 
     SAKURA_TXT = """
 ◉ ᴛʜᴇsᴇ ᴀʀᴇ ᴏᴜʀ ᴏᴡɴᴇʀ ꜰᴇᴀᴛᴜʀᴇs , ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɴᴅ ᴛᴇʟʟ ʜᴏᴡ ɪs ɪᴛ
