@@ -1,4 +1,4 @@
- import psutil
+import psutil
 from pyrogram import Client, filters
 
 # Define the /sakura command handler
