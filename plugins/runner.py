@@ -7,7 +7,7 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
-from info import ADMINS,AUTHORISE_GROUPS
+from info import ADMINS,AUTHORIZED_GROUPS
 from database.users_chats_db import db
 
 # Supported programming languages
