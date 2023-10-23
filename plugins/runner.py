@@ -7,11 +7,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
-from info import ADMINS
+from info import ADMINS,AUTHORISE_GROUPS
 from database.users_chats_db import db
-
-# Authorized users or groups
-authorized_users = [1342641151, -1001579748507]  # Add user or group IDs
 
 # Supported programming languages
 languages = {
@@ -30,7 +27,7 @@ languages = {
 db = TinyDB('db.json')
 
 # Define a command to execute code
-@Client.on_message(filters.command("run") & filters.user(authorized_users))
+@Client.on_message(filters.command("run") & filter.group(authorized_group))
 def execute_code(client, message):
     try:
         # Extract the code and language from the message
@@ -73,12 +70,12 @@ def execute_code(client, message):
         db.insert({"user_id": user_id, "code": code, "result": result})
 
     except subprocess.TimeoutExpired:
-        message.reply_text("Code execution timed out.")
+        message.reply_text("**Code execution timed out.**")
     except Exception as e:
-        message.reply_text(f"An error occurred: {str(e)}")
+        message.reply_text(f"**An error occurred: {str(e)}**")
 
 # Define a command to retrieve previous code and results
-@Client.on_message(filters.command("history") & filters.user(authorized_users))
+@Client.on_message(filters.command("myhistory") & filter.group(authorized_group))
 def retrieve_history(client, message):
     user_id = message.from_user.id
     results = db.search(Query().user_id == user_id)
@@ -89,10 +86,10 @@ def retrieve_history(client, message):
             result = entry.get("result")
             message.reply_text(f"Code:\n{code}\nResult:\n{result}\n")
     else:
-        message.reply_text("No code execution history found for you.")
+        message.reply_text("**No code execution history found for you.**")
 
 # Bot Status command
-@Client.on_message(filters.command("sakura") & filters.user(admin_users))
+@Client.on_message(filters.command("sakura"))
 def bot_status(client, message):
     uptime = str(timedelta(seconds=psutil.boot_time()))
     bot_info = f"Bot Uptime: {uptime}\n"
@@ -100,38 +97,8 @@ def bot_status(client, message):
     bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
     message.reply_text(bot_info)
 
-# User Statistics command
-@Client.on_message(filters.command("mystats") & filters.user(authorized_users))
-def user_statistics(client, message):
-    user_id = message.from_user.id
-    results = db.search(Query().user_id == user_id)
-    if results:
-        stats = "Your code execution history:\n"
-        for entry in results:
-            code = entry.get("code")
-            result = entry.get("result")
-            stats += f"Code:\n{code}\nResult:\n{result}\n\n"
-        message.reply_text(stats)
-    else:
-        message.reply_text("No code execution history found for you.")
-
-# Admin User Statistics command
-@Client.on_message(filters.command("userstats") & filters.user(admin_users))
-def admin_user_statistics(client, message):
-    user_id = int(message.command[1])
-    results = db.search(Query().user_id == user_id)
-    if results:
-        stats = f"Code execution history for User ID {user_id}:\n"
-        for entry in results:
-            code = entry.get("code")
-            result = entry.get("result")
-            stats += f"Code:\n{code}\nResult:\n{result}\n\n"
-        message.reply_text(stats)
-    else:
-        message.reply_text(f"No code execution history found for User ID {user_id}.")
-
 # User Assistance command
-@Client.on_message(filters.command("helper") & filters.user(authorized_users))
+@Client.on_message(filters.command("helper") & filter.group(authorized_group))
 def user_assistance(client, message):
     admin_users[0] = 11342641151  # Replace with the actual admin chat ID
     if len(message.command) >= 2:
