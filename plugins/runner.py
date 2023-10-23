@@ -9,6 +9,7 @@ from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
 from info import ADMINS,AUTHORIZED_GROUPS
 from database.users_chats_db import db
+authorized_group = AUTHORIZED_GROUPS
 
 # Supported programming languages
 languages = {
