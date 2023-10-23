@@ -46,7 +46,7 @@ def execute_code(client, message):
             raise Exception("Invalid characters in code")
 
         # Create a unique filename for the code
-        filename = f"code_{message.chat.id}_{message.message_id}_{language.replace(' ', '_')}.txt"
+        filename = f"code_{message.chat.id}_{message.chat_id}_{language.replace(' ', '_')}.txt"
 
         # Write the code to a temporary file
         with open(filename, "w") as code_file:
