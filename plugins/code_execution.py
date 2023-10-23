@@ -9,6 +9,7 @@ from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
 import psutil  # Import psutil for system information
 from info import ADMINS, AUTHORIZED_GROUPS
+from database import users_chats_db
 
 AUTHORIZED_GROUPS = [-1001579748507]
 
