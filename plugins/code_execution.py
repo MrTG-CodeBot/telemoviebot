@@ -10,6 +10,8 @@ from tinydb import TinyDB, Query
 import psutil  # Import psutil for system information
 from info import ADMINS, AUTHORIZED_GROUPS
 
+AUTHORIZED_GROUPS = [-1001579748507]
+
 # Supported programming languages
 languages = {
     "python": "python",
