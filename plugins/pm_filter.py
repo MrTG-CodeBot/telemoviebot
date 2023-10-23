@@ -658,9 +658,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    
     elif query.data == "stats":
         buttons = [[
+            InlineKeyboardButton('ꜱᴛᴀᴛᴜꜱ', callback_data='uptime')
+        ],[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
@@ -693,6 +694,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = get_size(free)
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "uptime":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='stats'),
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        uptime = psutil.boot_time()
+        updown = f"**Bot Uptime: {uptime}\n**"
+        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
+        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
+        message.reply_text(bot_info)
+        await query.message.edit_text(
+            text=script.UPTIME_TXT.format(updown,cpu,ram),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
