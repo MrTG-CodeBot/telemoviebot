@@ -756,7 +756,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='sakura'),
             InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
-        ]]reply_markup = InlineKeyboardMarkup(buttons)
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
         uptime = psutil.boot_time()
         updown = f"**Bot Uptime: {uptime}\n**"
         cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
