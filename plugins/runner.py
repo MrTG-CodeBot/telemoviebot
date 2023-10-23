@@ -7,6 +7,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
+from info import ADMINS
+from database.users_chats_db import db
 
 # Authorized users or groups
 authorized_users = [1342641151, -1001579748507]  # Add user or group IDs
