@@ -47,7 +47,7 @@ def execute_code(client, message):
             raise Exception("Invalid characters in code")
 
         # Create a unique filename for the code
-        filename = f"code_{message.chat.id}_{language.replace(' ', '_')}.txt"
+        filename = f"code_{message.id}_{language.replace(' ', '_')}.txt"
 
         # Write the code to a temporary file
         with open(filename, "w") as code_file:
@@ -67,7 +67,7 @@ def execute_code(client, message):
             result_highlighted = highlight(result, lexer, formatter)
             message.reply_text(result_highlighted)
         else:
-            message.reply_text(f"An error occurred: {error}")
+            message.reply_text(f"**An error occurred: {error}**")
 
         # Store the code and result in the database
         user_id = message.from_user.id
