@@ -131,7 +131,7 @@ def admin_user_statistics(client, message):
 # User Assistance command
 @Client.on_message(filters.command("helper") & filters.user(authorized_users))
 def user_assistance(client, message):
-    11342641151 = admin_users[0]  # Replace with the actual admin chat ID
+    admin_users[0] = 11342641151  # Replace with the actual admin chat ID
     if len(message.command) >= 2:
         issue = " ".join(message.command[1:])
         assistance_request = f"User {message.from_user.id} requests assistance:\n{issue}"
