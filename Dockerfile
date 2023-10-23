@@ -12,6 +12,8 @@ RUN pip install pygments
 
 RUN pip install tinydb
 
+RUN pip install psutil
+
 RUN pip install web
 
 RUN pip install --upgrade pip
