@@ -741,13 +741,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='sakura')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        uptime = psutil.boot_time()
-        updown = f"**Bot Uptime: {uptime}\n**"
-        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
-        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
-        message.reply_text(bot_info)
+        bot_info = f"**Bot Uptime: {uptime}**\n"
+        bot_info += f"**CPU Usage: {psutil.cpu_percent(interval=1)}%**\n"
+        bot_info += f"**RAM Usage: {psutil.virtual_memory().percent}%**"
         await query.message.edit_text(
-            text=script.UPTIME_TXT.format(updown,cpu,ram),
+            text=script.UPTIME_TXT.format(bot_info),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -758,13 +756,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        uptime = psutil.boot_time()
-        updown = f"**Bot Uptime: {uptime}\n**"
-        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
-        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
-        message.reply_text(bot_info)
+        bot_info = f"**Bot Uptime: {uptime}**\n"
+        bot_info += f"**CPU Usage: {psutil.cpu_percent(interval=1)}%**\n"
+        bot_info += f"**RAM Usage: {psutil.virtual_memory().percent}%**"
         await query.message.edit_text(
-            text=script.UPTIME_TXT.format(updown,cpu,ram),
+            text=script.UPTIME_TXT.format(bot_info),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
