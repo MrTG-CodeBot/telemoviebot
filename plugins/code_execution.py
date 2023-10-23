@@ -95,18 +95,23 @@ def retrieve_history(client, message):
 @Client.on_message(filters.command("sakura"))
 def bot_status(client, message):
     uptime = str(psutil.boot_time())
-    bot_info = f"Bot Uptime: {uptime}\n"
-    bot_info += f"CPU Usage: {psutil.cpu_percent(interval=1)}%\n"
-    bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
+    bot_info = f"**Bot Uptime: {uptime}\n**"
+    bot_info += f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
+    bot_info += f"**RAM Usage: {psutil.virtual_memory().percent}%**"
     message.reply_text(bot_info)
 
 # User Assistance command
 @Client.on_message(filters.command("helper") & filters.chat(AUTHORIZED_GROUPS))
-def user_assistance(client, message):
-    if len(message.command) >= 2:
-        issue = " ".join(message.command[1:])
-        assistance_request = f"User {message.from_user.id} requests assistance:\n{issue}"
-        client.send_message(chat_id=admin_chat_id, text=assistance_request)
-        message.reply_text("**Your assistance request has been sent to the admin team. They will get back to you.**")
-    else:
-        message.reply_text("Usage: /helper [issue description]")
+async def user_assistance(client, message: Message):
+    try:
+        if len(message.command) > 1:
+            issue = " ".join(message.command[1:])
+            assistance_request = f"User {message.from_user.id} requests assistance:\n{issue}"
+
+            await client.send_message(chat_id=admin_chat_id, text=assistance_request)
+            await message.reply_text("**Your assistance request has been sent to the admin team. They will get back to you.**")
+        else:
+            await message.reply_text("Usage: /helper [issue description]")
+    except Exception as e:
+        print(f"**An error occurred: {e}**")
+        await message.reply_text("**Sorry, something went wrong while processing your request. Please try again later.**")
