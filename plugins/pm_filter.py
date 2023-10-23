@@ -745,7 +745,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         bot_info += f"**CPU Usage: {psutil.cpu_percent(interval=1)}%**\n"
         bot_info += f"**RAM Usage: {psutil.virtual_memory().percent}%**"
         await query.message.edit_text(
-            text=script.UPTIME_TXT.format(bot_info),
+            text = script.UPTIME_TXT.format(bot_info)
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -760,7 +760,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         bot_info += f"**CPU Usage: {psutil.cpu_percent(interval=1)}%**\n"
         bot_info += f"**RAM Usage: {psutil.virtual_memory().percent}%**"
         await query.message.edit_text(
-            text=script.UPTIME_TXT.format(bot_info),
+            text = script.UPTIME_TXT.format(bot_info)
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
