@@ -43,11 +43,11 @@ def execute_code(client, message):
         code = " ".join(parts[2:])
 
         # Validate and sanitize input code
-        if not re.match(r"^[a-zA-Z0-9_!@#\$%^&*()_\-+=\[\]{};:'\",.<>/\|?~`\\]*$",code):
+        if not re.match(r"^[a-zA-Z0-9_!@#\$%^&*()_\%-+=\[\]{};:'\",.<>/\|?~`\\]*$",code):
             raise Exception("Invalid characters in code")
 
         # Create a unique filename for the code
-        filename = f"code_{message.chat.id}_{message.chat_id}_{language.replace(' ', '_')}.txt"
+        filename = f"code_{message.chat.id}_{language.replace(' ', '_')}.txt"
 
         # Write the code to a temporary file
         with open(filename, "w") as code_file:
