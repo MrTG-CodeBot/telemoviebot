@@ -661,27 +661,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('ꜱᴛᴀᴛᴜꜱ', callback_data='uptime')
-        ],[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
-    elif query.data == "uptime":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='stats'),
-            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        uptime = psutil.boot_time()
-        updown = f"**Bot Uptime: {uptime}\n**"
-        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
-        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
-        message.reply_text(bot_info)
-        await query.message.edit_text(
-            text=script.UPTIME_TXT.format(updown,cpu,ram),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )    
+        
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
         users = await db.total_users_count()
@@ -719,6 +702,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre'),
             InlineKeyboardButton('🎟 ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs', callback_data='upcomingmovies')
             ],[
+            InlineKeyboardButton('ꜱᴛᴀᴛᴜꜱ', callback_data='uptime')
+            ],[
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='help'),
             InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
@@ -750,6 +735,38 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
        )
+    elif query.data == "uptime":
+        buttons = [[
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='stats'),
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        uptime = psutil.boot_time()
+        updown = f"**Bot Uptime: {uptime}\n**"
+        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
+        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
+        message.reply_text(bot_info)
+        await query.message.edit_text(
+            text=script.UPTIME_TXT.format(updown,cpu,ram),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "rfrsh":
+        await query.answer("ʀᴇꜰʀᴇꜱʜɪɴɢ ᴅᴀᴛᴀ•••")
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='sakura'),
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
+        ]]reply_markup = InlineKeyboardMarkup(buttons)
+        uptime = psutil.boot_time()
+        updown = f"**Bot Uptime: {uptime}\n**"
+        cpu = f"**CPU Usage: {psutil.cpu_percent(interval=1)}%\n**"
+        ram = f"**RAM Usage: {psutil.virtual_memory().percent}%**"
+        message.reply_text(bot_info)
+        await query.message.edit_text(
+            text=script.UPTIME_TXT.format(updown,cpu,ram),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
         grpid = await active_connection(str(query.from_user.id))
