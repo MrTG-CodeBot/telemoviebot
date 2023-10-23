@@ -8,6 +8,7 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import TerminalFormatter
 from tinydb import TinyDB, Query
 import psutil  # Import psutil for system information
+form info import ADMIN,AUTHORIZED_GROUPS
 
 # Supported programming languages
 languages = {
