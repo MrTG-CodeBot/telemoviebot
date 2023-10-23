@@ -27,7 +27,7 @@ languages = {
 db = TinyDB('db.json')
 
 # Define a command to execute code
-@Client.on_message(filters.command("run") & filter.group(authorized_group))
+@Client.on_message(filters.command("run") & filters.chat(chat_id=authorized_group))
 def execute_code(client, message):
     try:
         # Extract the code and language from the message
@@ -75,7 +75,7 @@ def execute_code(client, message):
         message.reply_text(f"**An error occurred: {str(e)}**")
 
 # Define a command to retrieve previous code and results
-@Client.on_message(filters.command("myhistory") & filter.group(authorized_group))
+@Client.on_message(filters.command("myhistory") & filters.chat(chat_id=authorized_group))
 def retrieve_history(client, message):
     user_id = message.from_user.id
     results = db.search(Query().user_id == user_id)
@@ -98,7 +98,7 @@ def bot_status(client, message):
     message.reply_text(bot_info)
 
 # User Assistance command
-@Client.on_message(filters.command("helper") & filter.group(authorized_group))
+@Client.on_message(filters.command("helper") & filters.chat(chat_id=authorized_group))
 def user_assistance(client, message):
     admin_users[0] = 11342641151  # Replace with the actual admin chat ID
     if len(message.command) >= 2:
