@@ -42,7 +42,8 @@ def execute_code(client, message):
         code = " ".join(parts[2:])
 
         # Validate and sanitize input code
-        if not re.match(r"^[a-zA-Z0-9_\s]*$", code):
+        if not re.match(r"^[a-zA-Z0-9_!@#\$%^&*\(\)_\-\+=\[\]\{\};:'",.<>/\|?~`]*$
+", code):
             raise Exception("Invalid characters in code")
 
         # Create a unique filename for the code
