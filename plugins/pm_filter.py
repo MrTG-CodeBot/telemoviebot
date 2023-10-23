@@ -737,8 +737,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
        )
     elif query.data == "uptime":
         buttons = [[
-            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='')
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='stats'),
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='sakura'),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         uptime = psutil.boot_time()
