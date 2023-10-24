@@ -104,10 +104,7 @@ This module only works for my admins
 ◉ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ: <code>{}</code>
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
 ◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
-**UPTIME STATUS**  
-◉ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ: <code>{}</code>
-◉ ᴄᴘᴜ ᴜꜱᴀɢᴇ: <code>{}</code>
-◉ ʀᴀᴍ ᴜꜱᴀɢᴇ: <code>{}</code></b>"""
+<a href=https://t.me/{}>{}</a></b>"""
 
     SAKURA_TXT = """
 ◉ ᴛʜᴇsᴇ ᴀʀᴇ ᴏᴜʀ ᴏᴡɴᴇʀ ꜰᴇᴀᴛᴜʀᴇs , ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɴᴅ ᴛᴇʟʟ ʜᴏᴡ ɪs ɪᴛ
