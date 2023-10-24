@@ -103,9 +103,9 @@ This module only works for my admins
 ◉ ᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ: <code>{}</code>  
 ◉ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ: <code>{}</code>
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
-◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
-    
-    UPTIME_TXT = """<b>◉ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ: <code>{}</code>
+◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
+**UPTIME STATUS**  
+◉ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ: <code>{}</code>
 ◉ ᴄᴘᴜ ᴜꜱᴀɢᴇ: <code>{}</code>
 ◉ ʀᴀᴍ ᴜꜱᴀɢᴇ: <code>{}</code></b>"""
 
