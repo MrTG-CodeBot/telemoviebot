@@ -1,5 +1,5 @@
 import pyrogram
-from pyrogram import filters
+from pyrogram import filters, Client
 import subprocess
 from info import API_ID, API_HASH, BOT_TOKEN
 
