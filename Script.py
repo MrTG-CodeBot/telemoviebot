@@ -103,8 +103,7 @@ This module only works for my admins
 ◉ ᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ: <code>{}</code>  
 ◉ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ: <code>{}</code>
 ◉ ᴜꜱᴇᴅ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
-◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code>
-<a href=https://t.me/{}>{}</a></b>"""
+◉ ꜰᴇᴇᴇ ᴅʙ ꜱɪᴢᴇ: <code>{}</code></b>"""
 
     SAKURA_TXT = """
 ◉ ᴛʜᴇsᴇ ᴀʀᴇ ᴏᴜʀ ᴏᴡɴᴇʀ ꜰᴇᴀᴛᴜʀᴇs , ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɴᴅ ᴛᴇʟʟ ʜᴏᴡ ɪs ɪᴛ
