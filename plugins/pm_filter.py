@@ -17,8 +17,6 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
 from plugins import genre
-from plugins import uptime
-import psutil
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import (
     del_all,
@@ -674,8 +672,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text = script.STATUS_TXT = "{} users, {} chats, {} files, {} size, {} free",
-            reply_markup = reply_markup,
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "rfrsh":
@@ -693,8 +691,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text = script.STATUS_TXT = "{} users, {} chats, {} files, {} size, {} free",
-            reply_markup = reply_markup,
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "sakura":
