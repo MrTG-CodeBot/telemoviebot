@@ -673,11 +673,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        bot_info = f"Bot Uptime: {uptime}\n"
-        bot_info += f"CPU Usage: {psutil.cpu_percent(interval=1)}%\n"
-        bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free, bot_info),
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -695,11 +692,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        bot_info = f"Bot Uptime: {uptime}\n"
-        bot_info += f"CPU Usage: {psutil.cpu_percent(interval=1)}%\n"
-        bot_info += f"RAM Usage: {psutil.virtual_memory().percent}%"
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free, bot_info),
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
