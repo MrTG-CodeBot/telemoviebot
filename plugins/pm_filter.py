@@ -674,8 +674,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
-            reply_markup=reply_markup,
+            text = script.STATUS_TXT = "{} users, {} chats, {} files, {} size, {} free",
+            reply_markup = reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "rfrsh":
@@ -693,8 +693,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
-            reply_markup=reply_markup,
+            text = script.STATUS_TXT = "{} users, {} chats, {} files, {} size, {} free",
+            reply_markup = reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "sakura":
