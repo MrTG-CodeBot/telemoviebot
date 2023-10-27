@@ -8,6 +8,8 @@ COPY requirements.txt /sakura/
 # Run the pip install command to install the Python dependencies
 RUN pip install -r requirements.txt
 
+RUN pip install openai
+
 RUN pip install psutil
 
 RUN pip install web
