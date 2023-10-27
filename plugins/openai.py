@@ -28,4 +28,3 @@ async def openai(client, message):
 
 print(response["choices"][0]["message"]["content"])
 
-    await client.send_message(chat_id=message.chat.id, text=response.choices[0].text.strip())
