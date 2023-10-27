@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 import openai
-from plugins import openai_work
+from plugins.openai_work import id, object, created, model, choices, index, message role, content, finish_reason, prompt_tokens, completion_tokens, total_tokens
 from info import API_ID, API_HASH, BOT_TOKEN, OPEN_API_KEY, OPENAI_ORGANIZATION
 
 openai.api_key = OPEN_API_KEY
