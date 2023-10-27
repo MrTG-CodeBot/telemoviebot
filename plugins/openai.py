@@ -1,7 +1,10 @@
 import os
 from pyrogram import Client, filters
 import openai
-from info import API_ID, API_HASH, BOT_TOKEN, OPEN_API_KEY
+from info import API_ID, API_HASH, BOT_TOKEN, OPEN_API_KEY, OPENAI_ORGANIZATION
+
+openai.api_key = OPEN_API_KEY
+openai.organization = OPENAI_ORGANIZATION
 
 openai_api_key= "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"  
 openai.organization = "org-1KWuVrdSyt25Vfvs8rvS3ofB"
