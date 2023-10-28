@@ -1,9 +1,10 @@
 from pyrogram import Client, filters
 from PIL import Image
-from info import API_ID, API_HASH, BOT_TOKEN
+import requests
+from io import BytesIO
 
-# Define the required picture for the thumbnail
-required_picture = Image.open("https://telegra.ph/file/fc67cc1d31af65967e4f9.jpg")
+# URL of the required picture for the thumbnail
+required_picture_url = "https://telegra.ph/file/fc67cc1d31af65967e4f9.jpg"
 
 @Client.on_message(filters.document)
 async def generate_thumbnail(client, message):
@@ -12,6 +13,10 @@ async def generate_thumbnail(client, message):
 
     # Download the document
     file_path = await client.download_media(document)
+
+    # Download the required picture from the URL
+    response = requests.get(required_picture_url)
+    required_picture = Image.open(BytesIO(response.content))
 
     # Generate the thumbnail by resizing the required picture
     thumbnail = required_picture.resize((100, 100))
