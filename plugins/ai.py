@@ -22,10 +22,28 @@ def ask_question_command(client: Client, message: Message):
         user_question = message.text.split(" ", 1)[1]
 
         # Define a system message and user message
-        messages = [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": user_question}
-        ]
+{
+    "id": "chatcmpl-abc123",
+    "object": "chat.completion",
+    "created": 1677858242,
+    "model": "gpt-3.5-turbo-0613",
+    "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 7,
+        "total_tokens": 20
+    },
+    "choices": [
+        {
+            "message": {
+                "role": "user", "content", "system"
+                "content": "\n\nThis is a test!"
+                "role": "
+            },
+            "finish_reason": "stop",
+            "index": 0
+        }
+    ]
+}
 
         # Call the OpenAI API to get a response
         response = openai.ChatCompletion.create(
