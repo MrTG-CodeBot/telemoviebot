@@ -16,6 +16,15 @@ async def gpt_command(client, message):
             prompt=input_text,
             max_tokens=50  # Adjust this as needed
         )
+        response = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo",
+  messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Who won the world series in 2020?"},
+        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+        {"role": "user", "content": "Where was it played?"}
+    ]
+)
         await message.reply(response.choices[0].text)
     except Exception as e:
         await message.reply(f"An error occurred: {str(e)}")
