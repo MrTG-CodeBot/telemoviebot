@@ -4,8 +4,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from info import API_ID, API_HASH, BOT_TOKEN, OPENAI_API_KEY, OPENAI_ORGANIZATION
 
-OPENAI_API_KEY = os.environ.get("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")
-OPENAI_ORGANIZATION = os.environ.get('org-63EsIa4XvrrUsETGhjsDzYIq')
+OPENAI_API_KEY = os.environ.get("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")
+OPENAI_ORGANIZATION = os.environ.get('org-1KWuVrdSyt25Vfvs8rvS3ofB')
 
 @Client.on_message(filters.command("ask"))
 async def gpt_command(client, message):
