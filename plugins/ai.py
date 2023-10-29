@@ -10,7 +10,7 @@ request_count = 0
 # Set your OpenAI API key
 
 openai.api_key = OPENAI_API_KEY
-OpenAI-Organization = OPENAI_ORGANIZATION
+openai.oraganization = OPENAI_ORGANIZATION
 
 # Define a command for users to ask questions
 @Client.on_message(filters.command("ask", prefixes="/"))
