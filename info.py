@@ -4,6 +4,7 @@ from os import environ
 from pyrogram import enums
 from Script import script
 
+import openai
 import asyncio
 import json
 from collections import defaultdict
