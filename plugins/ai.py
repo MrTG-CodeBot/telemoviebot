@@ -8,6 +8,8 @@ from info import API_ID, API_HASH, BOT_TOKEN, OPENAI_API_KEY, OPENAI_ORGANIZATIO
 request_count = 0
 
 # Set your OpenAI API key
+OPENAI_API_KEY = os.environ.get('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')
+OPENAI_ORGANIZATION = os.environ.get('org-63EsIa4XvrrUsETGhjsDzYIq')
 
 openai.api_key = OPENAI_API_KEY
 openai.oraganization = OPENAI_ORGANIZATION
