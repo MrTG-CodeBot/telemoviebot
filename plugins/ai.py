@@ -4,67 +4,21 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from info import API_ID, API_HASH, BOT_TOKEN, OPENAI_API_KEY, OPENAI_ORGANIZATION
 
-# Initialize a variable to keep track of the number of requests
-request_count = 0
-
-# Set your OpenAI API key
-OPENAI_API_KEY = os.environ.get('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')
+OPENAI_API_KEY = os.environ.get("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")
 OPENAI_ORGANIZATION = os.environ.get('org-63EsIa4XvrrUsETGhjsDzYIq')
 
-openai.api_key = OPENAI_API_KEY
-openai.oraganization = OPENAI_ORGANIZATION
-
-# Define a command for users to ask questions
-@Client.on_message(filters.command("ask", prefixes="/"))
-def ask_question_command(client: Client, message: Message):
-    global request_count  # Access the request_count variable
-
+@Client.on_message(filters.command("ask"))
+async def gpt_command(client, message):
     try:
-        # Extract the user's question from the command
-        user_question = message.text.split(" ", 1)[1]
-
-        # Define a system message and user message
-{
-    "id": "chatcmpl-abc123",
-    "object": "chat.completion",
-    "created": 1677858242,
-    "model": "gpt-3.5-turbo-0613",
-    "usage": {
-        "prompt_tokens": 13,
-        "completion_tokens": 7,
-        "total_tokens": 20
-    },
-    "choices": [
-        {
-            "message": {
-                "role": "user", "content", "system"
-                "content": "\n\nThis is a test!"
-                "role": "
-            },
-            "finish_reason": "stop",
-            "index": 0
-        }
-    ]
-}
-
-        # Call the OpenAI API to get a response
-        response = openai.ChatCompletion.create(
-            model="gpt-4",  # Use "gpt-4" if you have early access, otherwise "gpt-3.5-turbo"
-            messages=messages
+        input_text = " ".join(message.text.split()[1:])
+        response = openai.Completion.create(
+            engine="text-davinci-002",
+            prompt=input_text,
+            max_tokens=50  # Adjust this as needed
         )
-
-        # Send the AI response to the user
-        assistant_response = response['choices'][0]['message']['content']
-        message.reply(assistant_response)
-
-        # Increment the request count
-        request_count += 1
-
+        await message.reply(response.choices[0].text)
     except Exception as e:
-        # Handle any errors that occur during processing
-        error_message = f"An error occurred: {str(e)}"
-        message.reply(error_message)
-
+        await message.reply(f"An error occurred: {str(e)}")
 # Define a command to check the request count
 @Client.on_message(filters.command("request_count", prefixes="/"))
 def check_request_count(client: Client, message: Message):
