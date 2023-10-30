@@ -8,6 +8,8 @@ COPY requirements.txt /sakura/
 # Run the pip install command to install the Python dependencies
 RUN pip install -r requirements.txt
 
+pip install requests
+
 RUN pip install bard
 
 RUN pip install bardapi
