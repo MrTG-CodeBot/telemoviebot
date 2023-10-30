@@ -1,5 +1,5 @@
 import pyrogram
-import bard
+import bardapi
 import request
 from pyrogram import Client, filters
 from pyrogram.types import Message
