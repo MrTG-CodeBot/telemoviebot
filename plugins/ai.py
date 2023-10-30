@@ -8,6 +8,7 @@ GOOGLE_BARD_API_KEY = os.environ.get('AIzaSyBHHKi9eI9NSoPb_MMjsYSTGqE-bFPU2DE')
 
 @Client.on_message(filters.command("ai"))
 async def ai(client, message):
+ 
   # Get the user's message text.
   message_text = message.text
 
