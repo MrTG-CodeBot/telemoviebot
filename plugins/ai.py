@@ -1,35 +1,31 @@
-import os
-import openai
+import pyrogram
+import bard
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from info import API_ID, API_HASH, BOT_TOKEN, OPENAI_API_KEY, OPENAI_ORGANIZATION
+from info import API_ID, API_HASH, BOT_TOKEN, 
 
-OPENAI_API_KEY = os.environ.get("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")
-OPENAI_ORGANIZATION = os.environ.get('org-1KWuVrdSyt25Vfvs8rvS3ofB')
+bard_client = bard.Client(api_key="your_api_key")
 
-@Client.on_message(filters.command("ask"))
-async def gpt_command(client, message):
-    try:
-        input_text = " ".join(message.text.split()[1:])
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=input_text,
-            max_tokens=50  # Adjust this as needed
-        )
-        response = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
-  messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Who won the world series in 2020?"},
-        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-        {"role": "user", "content": "Where was it played?"}
-    ]
-)
-        await message.reply(response.choices[0].text)
-    except Exception as e:
-        await message.reply(f"An error occurred: {str(e)}")
-# Define a command to check the request count
-@Client.on_message(filters.command("request_count", prefixes="/"))
-def check_request_count(client: Client, message: Message):
-    global request_count  # Access the request_count variable
-    message.reply(f"Number of requests: {request_count}")
+
+@Client.on_message(filters.command("ai"))
+async def ai(client, message):
+    # Get the user's message text.
+    message_text = message.text
+
+    # Send the request to the Bard API
+    response = await client.send_request(
+        "https://language.googleapis.com/v1beta1/generation/",
+        method="POST",
+        data={"input_text": request},
+    )
+
+
+    # Generate a response using Google Bard.
+    response = await bard_client.generate(
+        prompt=message_text,
+        max_tokens=1024,
+        temperature=0.7
+    )
+
+    # Send the response to the user.
+    await message.reply_text(response)
