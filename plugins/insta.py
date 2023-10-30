@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from info import API_ID, API_HASH, BOT_TOKEN
 
 async def download_reel(reel_url):
-    async with app.session() as session:
+    async with client.session() as session:
         async with session.get(reel_url) as response:
             reel_data = await response.read()
 
