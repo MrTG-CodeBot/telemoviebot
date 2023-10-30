@@ -4,7 +4,7 @@ from os import environ
 from pyrogram import enums
 from Script import script
 
-import bard
+import bardapi
 import asyncio
 import json
 from collections import defaultdict
