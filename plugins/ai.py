@@ -1,5 +1,4 @@
 import pyrogram
-import request
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from info import API_ID, API_HASH, BOT_TOKEN, GOOGLE_BARD_API_KEY
