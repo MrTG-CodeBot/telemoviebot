@@ -1,10 +1,11 @@
 import pyrogram
 import bard
+import request
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from info import API_ID, API_HASH, BOT_TOKEN, 
+from info import API_ID, API_HASH, BOT_TOKEN, GOOGLE_BARD_API_KEY
 
-bard_client = bard.Client(api_key="your_api_key")
+bard_client = bard.Client(api_key="AIzaSyBHHKi9eI9NSoPb_MMjsYSTGqE-bFPU2DE")
 
 
 @Client.on_message(filters.command("ai"))
