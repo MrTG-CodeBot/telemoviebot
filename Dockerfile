@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 
 RUN pip install pyrogram --upgrade
 
-RUN pip install bard
+RUN pip install bard-py==0.1.0
 
 RUN pip install bardapi
 
