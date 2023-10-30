@@ -13,7 +13,7 @@ async def download_reel(reel_url):
 
         return "reel.mp4"
       
-@app.on_message(filters.command("reel"))
+@Client.on_message(filters.command("reel"))
 async def reel_handler(client: Client, message: Message):
     reel_url = message.text.split()[1]
 
