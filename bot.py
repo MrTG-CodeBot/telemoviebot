@@ -22,6 +22,8 @@ import pytz
 import aiohttp
 from aiohttp import web
 from plugins import web_server
+from plugins import sakura_ai
+import sakura_ai
 
 
 class Bot(Client):
