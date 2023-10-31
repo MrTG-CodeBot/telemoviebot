@@ -13,9 +13,9 @@ from info import API_ID, API_HASH, BOT_TOKEN, GENERATIVE_AI_API_KEY
 
 client = Client(
     name="BardBot",
-    api_id=api_id,
-    api_hash=api_hash,
-    bot_token=bot_token
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
 )
 
 def interact_with_bard(prompt):
