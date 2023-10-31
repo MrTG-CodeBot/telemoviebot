@@ -21,32 +21,24 @@ async def bard_ai(client: Client, message: Message):
   await message.reply_text('The Bard AI service is currently unavailable.')
   return
 
- # Get the prompt from the message.
  prompt = message.text[len('/bard'):].strip()
 
- # Make a request to the Bard AI API.
  response = bard.get_answer(prompt)
 
- # Check the response status code.
  if response['status'] == 'success':
   # Success!
   generated_text = response['answer']
 
-  # Edit the original message with the generated text.
   await message.edit_text(generated_text)
 
  else:
   # Error!
   await message.reply_text('An error occurred while processing your request.')
 
-# Handle all other messages.
+
 @Client.on_message()
 async def handle_message(client: Client, message: Message):
- """Handles all incoming messages."""
-
- # Ignore the message if it's not a Bard AI request.
- if not message.text.startswith('/bard'):
+  if not message.text.startswith('/bard'):
   return
 
- # Otherwise, handle the Bard AI request.
  await bard_ai(client, message)
