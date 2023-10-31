@@ -16,8 +16,7 @@ bard = bardapi.core.Bard(bard_api_token)
 # Add a command handler for the `/bard` command.
 @Client.on_message(filters.command(["bard"]) & filters.text)
 async def bard_ai(client: Client, message: Message):
- """Handles Bard AI requests."""
-
+  
  # Check if the Bard AI service is available.
  response = bard.get_service_status()
  if response['status'] != 'success':
