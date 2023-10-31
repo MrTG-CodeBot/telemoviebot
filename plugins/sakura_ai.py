@@ -10,6 +10,7 @@ import pyrogram
 from pyrogram import Client
 import requests
 from info import API_ID, API_HASH, BOT_TOKEN, GENERATIVE_AI_API_KEY
+from google.generativeai import generate_text
 
 client = Client(
     name="BardBot",
