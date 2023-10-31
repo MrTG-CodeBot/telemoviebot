@@ -6,7 +6,6 @@ marshmallow==3.14.1
 umongo==3.0.1
 requests
 bard>=0.0.1
-google-generativeai==0.2.2
 charset-normalizer
 google-ai-generativelanguage==0.2.0
 IMDbPY==2021.4.18
