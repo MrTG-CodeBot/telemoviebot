@@ -12,8 +12,7 @@ import requests
 from info import API_ID, API_HASH, BOT_TOKEN, GENERATIVE_AI_API_KEY
 from google.generativeai import generate_text
 
-client = Client(
-  name="BardBot",
+client = Client(name="BardBot",
   api_id=API_ID,
   api_hash=API_HASH,
   bot_token=BOT_TOKEN
