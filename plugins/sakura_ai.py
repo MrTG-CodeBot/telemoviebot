@@ -18,6 +18,16 @@ client = Client(
     bot_token=BOT_TOKEN
 )
 
+@client.on_message(filters.command("sakura_ai"))
+async def sakura_ai(client, message):
+  # Get the user's message
+  user_message = message.text
+
+  # Send a message to the user if they have not provided a message
+  if not user_message:
+    await client.send_message(message.chat.id, "Please provide a message.")
+    return
+
 async def interact_with_bard(prompt, timeout=30):
   headers = {
     "Authorization": "Bearer AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ"
@@ -33,17 +43,7 @@ async def interact_with_bard(prompt, timeout=30):
 
 
 
-@client.on_message(filters.command("sakura_ai"))
-async def sakura_ai(client, message):
-  # Get the user's message
-  user_message = message.text
-
-  # Send a message to the user if they have not provided a message
-  if not user_message:
-    await client.send_message(message.chat.id, "Please provide a message.")
-    return
-
-  # Generate a response using the Generative AI API
+# Generate a response using the Generative AI API
   response = await interact_with_bard(user_message, timeout=10)
 
   # Send the response to the user
