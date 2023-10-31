@@ -29,7 +29,7 @@ async def start(client, message):
             [
                 InlineKeyboardButton('ʜᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
 
-@client.on_message(filters.command("sakura_ai"))
+@Client.on_message(filters.command("sakura_ai"))
 async def sakura_ai_command_handler(client, message):
     user_message = message.text.split(maxsplit=1)
     if len(user_message) > 1:
