@@ -9,6 +9,7 @@ import json
 from collections import defaultdict
 from typing import Dict, List, Union
 from pyrogram import Client
+import google.generativeai as palm
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
