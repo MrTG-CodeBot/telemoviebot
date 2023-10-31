@@ -46,9 +46,3 @@ async def sakura_ai(client, message):
 
   # Send the response to the user
   await client.send_message(message.chat.id, response)
-
-    # Generate a response using the Generative AI API
-    response = interact_with_bard(user_message)
-
-    # Send the response to the user
-    client.send_message(message.chat.id, response)
