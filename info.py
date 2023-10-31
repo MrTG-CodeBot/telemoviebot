@@ -4,6 +4,7 @@ from os import environ
 from pyrogram import enums
 from Script import script
 
+from google.generativeai import palm
 import sys
 sys.path.append("/path/to/google-generativeai")
 
@@ -12,7 +13,7 @@ import json
 from collections import defaultdict
 from typing import Dict, List, Union
 from pyrogram import Client
-import google.generativeai as palm
+
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
