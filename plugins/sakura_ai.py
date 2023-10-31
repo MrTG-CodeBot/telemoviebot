@@ -21,7 +21,7 @@ client = Client(
 
 def interact_with_bard(prompt):
     headers = {
-        "Authorization": "Bearer YOUR_GENERATIVE_AI_API_KEY"
+        "Authorization": "Bearer AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ"
     }
     response = requests.post(
         "https://ai.google/generate",
