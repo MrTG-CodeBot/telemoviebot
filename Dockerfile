@@ -18,10 +18,6 @@ RUN pip install google-generativeai
 
 RUN pip install web
 
-RUN pip install bard-client
-
-RUN pip install bard-ai
-
 COPY ..
 
 CMD ["python3", "bot.py"]
