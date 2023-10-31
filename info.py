@@ -4,10 +4,6 @@ from os import environ
 from pyrogram import enums
 from Script import script
 
-from google.generativeai import palm
-import sys
-sys.path.append("/path/to/google-generativeai")
-
 import asyncio
 import json
 from collections import defaultdict
