@@ -30,10 +30,22 @@ def interact_with_bard(prompt):
     response.raise_for_status()
     return response.json()["responses"][0]["text"]
 
+
 @client.on_message(filters.command("sakura_ai"))
-def sakura_ai(client, message):
-    # Get the user's message
-    user_message = message.text
+async def sakura_ai(client, message):
+  # Get the user's message
+  user_message = message.text
+
+  # Send a message to the user if they have not provided a message
+  if not user_message:
+    await client.send_message(message.chat.id, "Please provide a message.")
+    return
+
+  # Generate a response using the Generative AI API
+  response = await interact_with_bard(user_message, timeout=10)
+
+  # Send the response to the user
+  await client.send_message(message.chat.id, response)
 
     # Generate a response using the Generative AI API
     response = interact_with_bard(user_message)
