@@ -22,7 +22,9 @@ import pytz
 import aiohttp
 from aiohttp import web
 from plugins import web_server
-from plugins import sakura_ai
+from plugins import bard
+import bardapi
+from bardapi import Bard
 
 
 class Bot(Client):
