@@ -5,7 +5,14 @@ motor==2.5.1
 marshmallow==3.14.1
 umongo==3.0.1
 requests==2.26.0
+colorama
+httpx[http2]>=0.20.0
+langdetect
+deep_translator
+google-cloud-translate
+browser_cookie3
 bard>=0.0.1
+bardapi==0.1.23a
 charset-normalizer
 google-ai-generativelanguage==0.2.0
 IMDbPY==2021.4.18
