@@ -8,6 +8,15 @@ from info import API_ID, API_HASH, BOT_TOKEN, GENERATIVE_AI_API_KEY  # Assuming 
 
 client = Client("BardBot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
+@client.on_message(filters.command("sakura_ai"))
+async def sakura_ai_command_handler(client, message):
+    user_message = message.text.split(maxsplit=1)
+    if len(user_message) > 1:
+        user_message = user_message[1]
+        await interact_with_bard(message, user_message)
+    else:
+        await message.reply("Please provide a message.")
+
 async def interact_with_bard(message, user_message):
     # Send a message to the user if they have not provided a message
     if not user_message:
@@ -32,13 +41,3 @@ async def generate_response(prompt, timeout=10):
     response.raise_for_status()
     data = response.json()
     return data["responses"][0]["text"]
-
-@client.on_message(filters.command("sakura_ai"))
-async def sakura_ai_command_handler(client, message):
-    user_message = message.text.split(maxsplit=1)
-    if len(user_message) > 1:
-        user_message = user_message[1]
-        await interact_with_bard(message, user_message)
-    else:
-        await message.reply("Please provide a message.")
-
