@@ -14,6 +14,8 @@ RUN pip install pyrogram --upgrade
 
 RUN pip install web
 
+RUN pip install bard-client
+
 RUN pip install bard-ai
 
 COPY ..
