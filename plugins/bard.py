@@ -14,36 +14,42 @@ Client('bot', api_id, api_hash, bot_token)
 bard = bardapi.core.Bard(bard_api_token)
 
 # Add a command handler for the `/bard` command.
-@Client.on_message(filters.command(["bard"]))
+@Client.on_message(filters.command(["bard"]) & filters.text)
 async def bard_ai(client: Client, message: Message):
-  """Handles Bard AI requests."""
+ """Handles Bard AI requests."""
 
-  # Get the prompt from the message.
-  prompt = message.text[len('/bard'):].strip()
+ # Check if the Bard AI service is available.
+ response = bard.get_service_status()
+ if response['status'] != 'success':
+  await message.reply_text('The Bard AI service is currently unavailable.')
+  return
 
-  # Make a request to the Bard AI API.
-  response = bard.get_answer(prompt)
+ # Get the prompt from the message.
+ prompt = message.text[len('/bard'):].strip()
 
-  # Check the response status code.
-  if response['status'] == 'success':
-    # Success!
-    generated_text = response['answer']
+ # Make a request to the Bard AI API.
+ response = bard.get_answer(prompt)
 
-    # Send the generated text back to the user.
-    await message.reply_text(generated_text)
+ # Check the response status code.
+ if response['status'] == 'success':
+  # Success!
+  generated_text = response['answer']
 
-  else:
-    # Error!
-    await message.reply_text('An error occurred while processing your request.')
+  # Edit the original message with the generated text.
+  await message.edit_text(generated_text)
+
+ else:
+  # Error!
+  await message.reply_text('An error occurred while processing your request.')
 
 # Handle all other messages.
 @Client.on_message()
 async def handle_message(client: Client, message: Message):
-  """Handles all incoming messages."""
+ """Handles all incoming messages."""
 
-  # Ignore the message if it's not a Bard AI request.
-  if not message.text.startswith('/bard'):
-    return
+ # Ignore the message if it's not a Bard AI request.
+ if not message.text.startswith('/bard'):
+  return
 
-  # Otherwise, handle the Bard AI request.
-  await bard_ai(client, message)
+ # Otherwise, handle the Bard AI request.
+ await bard_ai(client, message)
