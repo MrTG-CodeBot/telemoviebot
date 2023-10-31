@@ -529,26 +529,3 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
-
-async def interact_with_bard(self, message, user_message):
-        # Send a message to the user if they have not provided a message
-        if not user_message:
-            await message.reply("Please provide a message.")
-            return
-
-        response = await self.generate_response(user_message)
-
-        # Send the response to the user
-        await message.reply(response)
-
-    async def generate_response(self, prompt, timeout=10):
-        # Your generate_response code here
-
-    @Client.on_message(filters.command("sakura_ai"))
-    async def sakura_ai_command_handler(self, message):
-        user_message = message.text.split(maxsplit=1)
-        if len(user_message) > 1:
-            user_message = user_message[1]
-            await self.interact_with_bard(message, user_message)
-        else:
-            await message.reply("Please provide a message.")
