@@ -18,17 +18,19 @@ client = Client(
     bot_token=BOT_TOKEN
 )
 
-def interact_with_bard(prompt):
-    headers = {
-        "Authorization": "Bearer AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ"
-    }
-    response = requests.post(
-        "https://ai.google/generate",
-        headers=headers,
-        json={"prompt": prompt}
-    )
-    response.raise_for_status()
-    return response.json()["responses"][0]["text"]
+async def interact_with_bard(prompt, timeout=30):
+  headers = {
+    "Authorization": "Bearer AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ"
+  }
+  response = await requests.post(
+    "https://ai.google/generate",
+    headers=headers,
+    json={"prompt": prompt},
+    timeout=timeout
+  )
+  response.raise_for_status()
+  return response.json()["responses"][0]["text"]
+
 
 
 @client.on_message(filters.command("sakura_ai"))
