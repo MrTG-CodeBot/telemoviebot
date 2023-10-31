@@ -1,24 +1,54 @@
-import pyrogram
-from pyrogram import Client
-from bard import Bard
-from info import API_ID, API_HASH, BOT_TOKEN, BARD_AI_API_KEY
+import re
+import os
+from os import environ
+from pyrogram import enums
+import asyncio
+import json
+from pyrogram import Client, filters
 
-# Create a new Bard AI instance.
-bard = Bard(api_key="YOUR_BARD_AI_API_KEY")
+# Replace these values with your own Telegram bot token and Google Bard AI API key
+API_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+GOOGLE_BARD_AI_API_KEY = os.environ.get("GOOGLE_BARD_AI_API_KEY")
 
-# Define a function that will be called when the bot receives the `/sakura_ai` command.
-async def sakura_ai_command(client: Client, message: pyrogram.types.Message):
-    """Command handler for the `/sakura_ai` command."""
+# A function to generate text using Google Bard AI
+def generate_text(prompt):
+  import requests
 
-    # Get the user's query.
-    query = message.text.split(" ")[1]
+  headers = {
+    "Authorization": f"Bearer {GOOGLE_BARD_AI_API_KEY}",
+  }
 
-    # Generate a response from Bard AI.
-    response = bard.generate_response(query)
+  body = {
+    "prompt": prompt,
+  }
 
-    # Send the response to the user.
-    await message.reply_text(response)
+  response = requests.post(
+    "https://ai.google/bard/api/generate",
+    headers=headers,
+    json=body,
+  )
 
-# Register the command handler with the Telegram bot client.
-@Client.add_handler(sakura_ai_command)
+  try:
+    response.raise_for_status()
+  except requests.exceptions.HTTPError as e:
+    print(e)
+    return None
+
+  return response.json()["text"]
+
+client = Client("my_bot", api_token=API_TOKEN)
+
+# Help command handler
+@client.on_message(filters.command("help"))
+def help_command(client, message):
+  # Send a help message to the user
+  client.send_message(message.chat.id, "Commands:\n/bard <prompt>: Generate text using Google Bard AI.\n/help: Show this help message.")
+
+# Command handler for the `/bard` command
+@client.on_message(filters.command("bard"))
+def bard_command(client, message):
+  # Generate text using Google Bard AI and send it to the user
+  text = generate_text(message.text.split()[1])
+  client.send_message(message.chat.id, text)
+
 
