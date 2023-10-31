@@ -9,6 +9,7 @@ from pyrogram import Client, filters
 import pyrogram
 from pyrogram import Client
 import requests
+import google.generativeai as palm
 from info import API_ID, API_HASH, BOT_TOKEN
 
 client = Client(
