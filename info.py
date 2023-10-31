@@ -36,6 +36,7 @@ class evamaria(Client):
             api_id=APP_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
+            bard_api_token=BARD_API_TOKEN,
             parse_mode=enums.ParseMode.HTML,
             sleep_threshold=60
         )
@@ -47,8 +48,7 @@ API_HASH = os.environ.get('API_HASH', '652bae601b07c928b811bdb310fdb4b0')
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
 TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
 OMDB_API_KEY = os.environ.get('42d8ac83')
-BARD_AI_API_KEY = os.environ.get('AIzaSyBHHKi9eI9NSoPb_MMjsYSTGqE-bFPU2DE')
-GENERATIVE_AI_API_KEY = os.environ.get('AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ')
+BARD_API_TOKEN = os.environ.get('ACA-OxNgCZ6YrKmMCBmNcfeLFMg_Y1eJ7E3SEwZzWRrrjj7ceg8GyI_ZSpd7vh7p89ACGGHf-Eg')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
