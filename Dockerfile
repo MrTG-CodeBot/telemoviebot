@@ -8,11 +8,11 @@ COPY requirements.txt /sakura/
 # Run the pip install command to install the Python dependencies
 RUN pip install -r requirements.txt
 
+RUN pip install pyrogram 
+
 RUN pip install pyrogram --upgrade
 
 RUN pip install web
-
-RUN pip install pyrogram 
 
 RUN pip install bard-ai
 
