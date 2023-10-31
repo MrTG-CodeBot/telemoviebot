@@ -47,7 +47,7 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW
 TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
 OMDB_API_KEY = os.environ.get('42d8ac83')
 BARD_AI_API_KEY = os.environ.get('AIzaSyBHHKi9eI9NSoPb_MMjsYSTGqE-bFPU2DE')
-GENERATIVE_AI_API_KEY = palm.configure(api_key=os.environ[''])
+GENERATIVE_AI_API_KEY = palm.configure(api_key=os.environ['AIzaSyBlmXtVe1J2_6tyWtRFP0_iHSokXkGp3XQ'])
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
