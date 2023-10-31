@@ -15,7 +15,7 @@ from google.generativeai import generate_text
 client = Client(name="BardBot")
 
 async def interact_with_bard(message):
-  user_message = message.text
+  user_message = message_text
 
   # Send a message to the user if they have not provided a message
   if not user_message:
