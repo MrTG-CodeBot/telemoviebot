@@ -4,9 +4,9 @@ import requests
 import pyrogram
 import bardapi
 from bardapi import Bard
-from info import API_ID, API_HASH, BOT_TOKEN, BARD_API_TOKEN 
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from info import API_ID, API_HASH, BOT_TOKEN, BARD_API_TOKEN
 
 bard_api_token = 'BARD_API_TOKEN'
 
