@@ -12,7 +12,9 @@ RUN pip install pyrogram --upgrade
 
 RUN pip install web
 
-RUN pip install --upgrade pip
+RUN pip install pyrogram 
+
+RUN pip install bard-ai
 
 COPY ..
 
