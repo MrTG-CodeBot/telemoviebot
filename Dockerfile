@@ -12,6 +12,8 @@ RUN pip install pyrogram
 
 RUN pip install pyrogram --upgrade
 
+RUN pip install google-generativeai
+
 RUN pip install web
 
 RUN pip install bard-client
