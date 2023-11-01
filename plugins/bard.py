@@ -4,6 +4,11 @@ import openai
 import requests
 from requests import Session
 from info import API_ID, API_HASH, BOT_TOKEN, OPENAAI_API_KEY
+import os
+import openai
+openai.organization = "org-63EsIa4XvrrUsETGhjsDzYIq"
+openai.api_key = os.getenv("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")
+openai.Model.list()
 
 # Authorize the OpenAI API key
 def authorize_openai(api_key):
