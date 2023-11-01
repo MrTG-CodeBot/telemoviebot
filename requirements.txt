@@ -23,6 +23,7 @@ PyPDF2
 ujson
 pyshorteners
 countryinfo
+psutil
 datetime
 pytz
 dnspython
