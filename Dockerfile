@@ -14,6 +14,8 @@ RUN pip install pyrogram
 
 RUN pip install pyrogram --upgrade
 
+RUN pip install --upgrade requests
+
 RUN pip install transformers
 
 RUN pip install web
