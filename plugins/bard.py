@@ -8,6 +8,12 @@ openai.api_key = "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"
 
 import curl
 
+# Define a command handler for /ask
+@Client.on_message(filters.command("ask", prefixes="/"))
+async def ask_command(client, message):
+    # Call your ask function with the message
+    response = await ask(client, message)
+
 async def send_request(payload):
   async with asyncio.to_thread(curl.post, "https://api.openai.com/v1/chat/completions",
                  json=payload, headers={"Authorization": f"Bearer {openai.api_key}"},            content_type="application/json"):
