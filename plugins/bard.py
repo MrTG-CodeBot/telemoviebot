@@ -19,12 +19,14 @@ def authorize_openai(api_key):
 # Define a function to handle incoming messages
 @Client.on_message(pyrogram.filters.command('ask', prefixes='/'))
 async def ask_command(client, message):
+    
   # Extract the user's question from the command
   question = ' '.join(message.command[1:])
 
   if not question:
     await message.reply("Please ask a question using the /ask command.")
   else:
+      
     # Authorize the OpenAI API key
     session = authorize_openai(OPENAAI_API_KEY)
 
