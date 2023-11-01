@@ -1,5 +1,7 @@
 import pyrogram
 from pyrogram import Client, filters
+import asyncio
+import re
 from transformers import AutoModelForQuestionAnswering
 from transformers import AutoTokenizer
 
