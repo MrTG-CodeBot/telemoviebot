@@ -66,9 +66,6 @@ def connect(payload):
     ]
   }
 
-# Start the client
-Client.start()
-
 # Listen for authentication codes
 while True:
   payload = client.receive_message()
