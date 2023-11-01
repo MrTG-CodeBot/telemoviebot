@@ -29,13 +29,13 @@ async def openai_command(client, message):
     )
   except Exception as e:
     # If an error occurs, send a message to the user
-    await client.send_message(message.chat.id, f"Error: {e}")
+    await Client.send_message(message.chat.id, f"Error: {e}")
   else:
     # If the completion was successful, send the completion to the user
     if response:
-      await client.send_message(message.chat.id, response.choices[0].text)
+      await Client.send_message(message.chat.id, response.choices[0].text)
     else:
-      await client.send_message(message.chat.id, "OpenAI failed to generate a completion.")
+      await Client.send_message(message.chat.id, "OpenAI failed to generate a completion.")
 
 # Connect command handler
 def connect(payload):
@@ -68,6 +68,6 @@ def connect(payload):
 
 # Listen for authentication codes
 while True:
-  payload = client.receive_message()
+  payload = Client.receive_message()
   if payload["type"] == "authenticationCode":
     connect(payload)
