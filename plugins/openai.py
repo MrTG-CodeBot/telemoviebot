@@ -37,22 +37,6 @@ async def openai_command(client, message):
     else:
       await Client.send_message(message.chat.id, "OpenAI failed to generate a completion.")
 
-# Authentication code handler
-@Client.on_message(filters.command("connect") and is_authenticated)
-async def connect_command(client, message):
-  # Check if the authentication code is valid
-  if message.text.split(" ")[1] != "chatcmpl-abc123":
-    raise Exception("Invalid authentication code")
-
-  # Send the response back to the user
-  await Client.send_message(message.chat.id, "Authentication code accepted.")
-
-# Connect command handler
-def connect(payload):
-  # Check if the authentication code is valid
-  if payload["id"] != "chatcmpl-abc123":
-    raise Exception("Invalid authentication code")
-
   # Send the response back to the user
   return {
     "id": "chatcmpl-abc123",
@@ -76,14 +60,3 @@ def connect(payload):
     ]
   }
 
-# Listen for authentication codes and OpenAI commands
-while True:
-  payload = Client.get_updates()
-
-  # If the payload is an authentication code, connect the user
-  if payload["type"] == "authenticationCode":
-    connect(payload)
-
-  # If the payload is an OpenAI command, generate a completion from OpenAI
-  elif payload["command"] == "openai":
-    openai_command(client, payload)
