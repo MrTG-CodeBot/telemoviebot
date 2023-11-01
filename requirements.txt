@@ -5,7 +5,7 @@ motor==2.5.1
 marshmallow==3.14.1
 umongo==3.0.1
 requests==2.26.0
-transformers==4.34.1
+transformers==4.30.2
 numpy==1.23.4
 pandas==1.4.2
 scikit-learn==1.0.2
