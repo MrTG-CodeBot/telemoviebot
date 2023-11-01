@@ -18,6 +18,8 @@ RUN pip install --upgrade requests
 
 RUN pip install urllib3 chardet
 
+RUN pip install openai
+
 RUN pip install transformers
 
 RUN pip install web
