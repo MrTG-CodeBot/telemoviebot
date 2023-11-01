@@ -14,9 +14,7 @@ RUN pip install pyrogram
 
 RUN pip install pyrogram --upgrade
 
-RUN pip install bardapi
-
-RUN pip install bardapi==0.1.23a
+RUN pip install openai
 
 RUN pip install web
 
