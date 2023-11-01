@@ -3,6 +3,8 @@ from pyrogram import Client
 import openai
 from info import API_ID, API_HASH, BOT_TOKEN, OPENAAI_API_KEY
 
+openai.api_key = OPENAI_API_KEY
+
 # Your OpenAI API key
 openai.api_key = 'YOUR_OPENAI_API_KEY'
 
