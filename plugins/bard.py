@@ -1,41 +1,28 @@
 import pyrogram
-from pyrogram import Client
 import openai
-import requests
-from requests import Session
-from info import API_ID, API_HASH, BOT_TOKEN, OPENAAI_API_KEY
-import os
-import openai
-openai.organization = "org-63EsIa4XvrrUsETGhjsDzYIq"
-openai.api_key = os.getenv("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")
-openai.Model.list()
+import asyncio
+from info import API_ID, API_HASH, BOT_TOKEN, OPENAI_API_KEY
 
-# Authorize the OpenAI API key
-def authorize_openai(api_key):
-    session = Session()
-    session.headers["Authorization"] = f"Bearer {api_key}"
-    return session
+OPENAI_API_KEY = openai.api_key
+openai.api_key = "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"
 
-# Define a function to handle incoming messages
-@Client.on_message(pyrogram.filters.command('ask', prefixes='/'))
-async def ask_command(client, message):
-    
-# Extract the user's question from the command
-  question = ' '.join(message.command[1:])
+async def send_request(payload):
+    async with asyncio.to_thread(curl.post, "https://api.openai.com/v1/chat/completions",
+                                 json=payload, headers={"Authorization": f"Bearer {openai.api_key}"},                         content_type="application/json"):
+        response = await resp.json()
+        return response
 
-  if not question:
-    await message.reply("Please ask a question using the /ask command.")
-  else:
-      
-# Authorize the OpenAI API key
-    session = authorize_openai(OPENAAI_API_KEY)
+async def ask(client, message):
+    text = message.text
 
-# Generate a response using ChatGPT
-    response = session.post(
-      "https://api.openai.com/v1/engines/davinci/completions",
-      headers={"Authorization": f"Bearer {OPENAAI_API_KEY}"},
-      json={"prompt": f"I have a question: {question}", "max_tokens": 150, "temperature": 0.7}
-    )
+    payload = {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {"role": "user", "content": text},
+        ],
+        "temperature": 0.7,
+    }
 
-# Send the response to the user
-    await message.reply(response.json()["choices"][0]["text"])
+    response = await send_request(payload)
+
+    await client.send_message(message.chat.id, response["choices"][0]["text"])
