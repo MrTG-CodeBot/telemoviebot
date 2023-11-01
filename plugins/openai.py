@@ -12,7 +12,7 @@ def is_authenticated(message):
   return message.from_user.is_authenticated
 
 # OpenAI command handler
-@client.on_message(filters.command("openai") and is_authenticated)
+@Client.on_message(filters.command("openai") and is_authenticated)
 async def openai_command(client, message):
   text = message.text.split(" ")[1:]
 
@@ -67,7 +67,7 @@ def connect(payload):
   }
 
 # Start the client
-client.start()
+Client.start()
 
 # Listen for authentication codes
 while True:
