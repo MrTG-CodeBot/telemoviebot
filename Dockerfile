@@ -8,7 +8,7 @@ COPY requirements.txt /sakura/
 # Run the pip install command to install the Python dependencies
 RUN pip install -r requirements.txt
 
-RUN pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 
 RUN pip install pyrogram 
 
