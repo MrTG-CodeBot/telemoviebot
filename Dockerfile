@@ -14,7 +14,7 @@ RUN pip install pyrogram
 
 RUN pip install pyrogram --upgrade
 
-RUN pip install openai
+RUN pip install transformers
 
 RUN pip install web
 
