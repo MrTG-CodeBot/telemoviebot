@@ -16,8 +16,6 @@ RUN pip install pyrogram --upgrade
 
 RUN pip install bardapi
 
-RUN pip install git+https://github.com/Sakurarendbot/bard-api.git
-
 RUN pip install bardapi==0.1.23a
 
 RUN pip install web
