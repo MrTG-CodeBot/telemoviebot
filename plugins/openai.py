@@ -1,7 +1,6 @@
 import os
 import pyrogram
 from pyrogram import Client, filters
-from pyrogram import receive_message
 import openai
 import re
 
@@ -79,7 +78,7 @@ def connect(payload):
 
 # Listen for authentication codes and OpenAI commands
 while True:
-  payload = Client.receive_message()
+  payload = Client.get_updates()
 
   # If the payload is an authentication code, connect the user
   if payload["type"] == "authenticationCode":
