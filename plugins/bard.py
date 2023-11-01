@@ -6,7 +6,7 @@ import bardapi
 from bardapi import Bard
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from info import API_ID, API_HASH, BOT_TOKEN, BARD_API_TOKEN
+from info import API_ID, API_HASH, BOT_TOKEN, BARD_API_TOKEN, __Secure-1PSID
 
 bard_api_token = BARD_API_TOKEN
 
