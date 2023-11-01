@@ -19,8 +19,6 @@ aiofiles
 ffmpeg-python
 ffmpeg
 aiohttp==3.8.0
-psutil==5.9.6
-telegraph
 PyPDF2
 ujson
 pyshorteners
