@@ -12,7 +12,7 @@ RUN python3 -m pip install --upgrade pip
 
 RUN pip install pyrogram 
 
-RUN pip install pyrogram --upgrade
+RUN pip install --upgrade pyrogram
 
 RUN pip install --upgrade requests
 
