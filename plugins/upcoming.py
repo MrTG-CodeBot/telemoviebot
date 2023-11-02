@@ -25,7 +25,7 @@ def get_upcoming_movies(regions):
     base_url = "https://api.themoviedb.org/3/movie/upcoming"
     params = {
         "api_key": TMDB_API_KEY,
-        "language": "en-IN" 
+        "language": "en_IN" 
     }
 
     for region in regions:
