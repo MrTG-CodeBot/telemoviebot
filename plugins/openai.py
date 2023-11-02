@@ -38,7 +38,3 @@ async def openai_command(client, message):
         else:
             await message.reply("OpenAI failed to generate a completion.")
 
-app = Client("my_bot")
-
-if __name__ == "__main__":
-    app.run()
