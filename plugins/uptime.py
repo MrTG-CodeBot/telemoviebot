@@ -2,7 +2,7 @@ import psutil
 from pyrogram import Client, filters
 
 # Define the /stats command handler
-@Client.on_message(filters.command("stats"))
+@Client.on_message(filters.command("uptime"))
 def bot_status(client, message):
 
     # Get bot uptime
