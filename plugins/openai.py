@@ -20,13 +20,13 @@ async def openai_command(client, message):
     # Try to generate a completion from OpenAI
     try:
         response = openai.Completion.create(
-            engine="text-davinci-002",
+            engine="davinci",
             prompt=text,
-            max_tokens=4000,
-            temperature=0.9,
-            top_p=9,
-            frequency_penalty=0.5,
-            presence_penalty=0.2,
+            max_tokens=2048,
+            temperature=0.8,
+            top_p=0.8,
+            frequency_penalty=0,
+            presence_penalty=0,
         )
     except Exception as e:
         # If an error occurs, send a message to the user
