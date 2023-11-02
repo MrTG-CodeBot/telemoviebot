@@ -13,7 +13,7 @@ def is_authenticated(client, message):
     return client.get_chat_member(message.chat.id, message.from_user.id).status in ("member", "admin", "creator")
 
 # OpenAI command handler
-@Client.on_message(filters.command("openai") & is_authenticated)
+@Client.on_message(filters.command("openai"))
 async def openai_command(client, message):
     text = " ".join(message.text.split(" ")[1:])  # Join the text parts after the command
 
