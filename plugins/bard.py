@@ -4,7 +4,7 @@ import asyncio
 import re
 from transformers import AutoModelForQuestionAnswering
 from transformers import AutoTokenizer
-from info import API_ID, API_HASH, BOT-TOKEN
+from info import API_ID, API_HASH, BOT_TOKEN
 
 # Define the API credentials
 API_ID = "8914119"
