@@ -7,9 +7,20 @@ import requests
 ia = IMDb()
 
 # Define a function to get the image URL for a movie
-def get_movie_image_url(movie_id):
-  movie = ia.get_movie(movie_id)
-  image_url = movie.get("cover")
+def get_movie_image_url(movie):
+  """Gets the image URL for a movie.
+
+  Args:
+    movie: A movie dictionary.
+
+  Returns:
+    The image URL for the movie, or None if the movie does not have an image.
+  """
+
+  if "image" not in movie:
+    return None
+
+  image_url = movie["image"]
   return image_url
 
 # Define a function to send a message with an image
@@ -32,13 +43,19 @@ async def search_genre(client, message):
   # Search for movies by genre using IMDbPY
   movies = ia.get_keyword(genre)
 
+  # If no movies were found, send a message to the user
+  if not movies:
+    await message.reply(f"**No movies found in the {genre} genre.**")
+    return
+
   # Create a list to store the movie image URLs
   movie_image_urls = []
 
   # Iterate over the movies and get the image URL for each movie
   for movie in movies:
-    movie_image_url = get_movie_image_url(movie["id"])
-    movie_image_urls.append(movie_image_url)
+    movie_image_url = get_movie_image_url(movie)
+    if movie_image_url is not None:
+      movie_image_urls.append(movie_image_url)
 
   # Format the response
   response = f"**Movies in the {genre} genre:**\n"
@@ -46,10 +63,6 @@ async def search_genre(client, message):
   # Iterate over the movie image URLs and send a message with an image for each movie
   for movie_image_url in movie_image_urls:
     await send_message_with_image(client, message, movie_image_url)
-
-  # If no movies were found, send a message to the user
-  if not movies:
-    response = f"**No movies found in the {genre} genre.**"
 
   # Send the final response to the user
   await message.reply(response)
