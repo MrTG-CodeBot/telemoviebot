@@ -67,6 +67,3 @@ class SpotifyDownloaderBot(pyrogram.Client):
       song_url = message.text.split(' ')[1]
       self.download_song(song_url)
 
-if __name__ == '__main__':
-  bot = SpotifyDownloaderBot()
-  bot.run()
