@@ -3,61 +3,42 @@ from pyrogram import Client, filters
 import requests
 from info import TMDB_API_KEY
 
-# Define the /upcoming_movies command to show upcoming movie releases
-@Client.on_message(filters.command("upcoming_movies"))
-async def upcoming_movies(client, message):
-    # Parse the region from the user's command, e.g., "/upcoming_movies United States"
-    command_parts = message.text.split()
-    if len(command_parts) > 1:
-        selected_region = " ".join(command_parts[1:])
-    else:
-        selected_region = "India"  # Default to United States if no region is specified
+# Define a new command parameter to specify multiple regions
+parser = argparse.ArgumentParser()
+parser.add_argument("--regions", nargs="*", help="Comma-separated list of regions")
 
-    # Fetch upcoming movies for the selected region
-    upcoming_movies = get_upcoming_movies(selected_region)
+# Define a new command parameter to specify the sorting option
+parser.add_argument("--sort", choices=["release_date", "popularity", "rating"], help="Sort order for the list of upcoming movies")
 
-    if upcoming_movies:
-        # Paginate the movie list (display up to 10 movies per page)
-        page_size = 10
-        current_page = 1
-        total_pages = (len(upcoming_movies) + page_size - 1) // page_size
+# Define a new command parameter to specify the filtering criteria
+parser.add_argument("--genre", choices=["Action", "Adventure", "Comedy", "Drama", "Horror", "Sci-Fi"], help="Filter by genre")
+parser.add_argument("--language", choices=["English", "Hindi", "Tamil", "Telugu", "Malayalam"], help="Filter by language")
 
-        while current_page <= total_pages:
-            start_idx = (current_page - 1) * page_size
-            end_idx = current_page * page_size
-            page_movies = upcoming_movies[start_idx:end_idx]
+# Define a new command parameter for pagination
+parser.add_argument("--page", type=int, help="Page number for the list of upcoming movies")
 
-            # Generate a message with upcoming movie details for the current page
-            message_text = f"Upcoming Movie Releases in {selected_region} (Page {current_page}/{total_pages}):\n"
-            for movie in page_movies:
-                formatted_date = format_date(movie['release_date'])
-                message_text += f"{movie['title']} - {formatted_date}\n\n"
+# Parse the command-line arguments
+args = parser.parse_args()
 
-            # Send the message for the current page
-            await message.reply_text(message_text)
-
-            current_page += 1
-    else:
-        await message.reply_text(f"No upcoming movies found in {selected_region}.")
-
-# Function to get upcoming movies using TMDb API for a selected region
-def get_upcoming_movies(selected_region):
-    base_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=b0d58dcd0ccbe19340aa143daf4c6ad0"
+# Get the upcoming movies for the specified regions
+def get_upcoming_movies(regions):
+    base_url = "https://api.themoviedb.org/3/movie/upcoming"
     params = {
         "api_key": TMDB_API_KEY,
-        "language": "en-IN",  # Adjust the language code as needed
-        "region": get_region_code(selected_region)
+        "language": "en-IN", # Adjust the language code as needed
     }
 
-    today = datetime.date.today()
-    next_month = today + datetime.timedelta(days=30)  # Get movies for the next 30 days
+    for region in regions:
+        params["region"] = get_region_code(region)
+        response = requests.get(base_url, params=params)
 
-    response = requests.get(base_url, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        upcoming_movies = [movie for movie in data["results"] if movie["release_date"] >= str(today) and movie["release_date"] <= str(next_month)]
-        return upcoming_movies
-    return []
+        if response.status_code == 200:
+            data = response.json()
+            upcoming_movies = [movie for movie in data["results"]]
+        else:
+            print(f"Could not fetch upcoming movies for region: {region}")
+
+    return upcoming_movies
 
 # Function to format the date in a user-friendly way (e.g., "January 1, 2023")
 def format_date(date_str):
@@ -80,3 +61,32 @@ def get_region_code(selected_region):
 
     # Default to "US" if the selected region is not in the mapping
     return region_mapping.get(selected_region, "IN")
+
+# Define the /upcoming_movies command to show upcoming movie releases
+@Client.on_message(filters.command("upcoming_movies"))
+async def upcoming_movies(client, message):
+    # Get the upcoming movies for the specified regions
+    upcoming_movies = get_upcoming_movies(args.regions if args.regions else ["India"])
+
+    # Sort the list of movies based on the specified sorting option
+    if args.sort:
+        upcoming_movies.sort(key=lambda movie: movie[args.sort], reverse=True)
+
+    # Filter the list of movies based on the specified filtering criteria
+    if args.genre:
+        upcoming_movies = [movie for movie in upcoming_movies if movie["genre"] == args.genre]
+    if args.language:
+        upcoming_movies = [movie for movie in upcoming_movies if movie["language"] == args.language]
+
+    # Paginate the list of movies (display up to 10 movies per page)
+    page_size = 10
+    current_page = args.page if args.page else 1
+    total_pages = (len(upcoming_movies) + page_size - 1) // page_size
+
+    while current_page <= total_pages:
+        start_idx = (current_page - 1) * page_size
+        end_idx = current_page * page_size
+        page_movies = upcoming_movies[start_idx:end_idx]
+
+        # Generate a message with upcoming movie details for the current page
+        message_text = f"Upcoming Movie
