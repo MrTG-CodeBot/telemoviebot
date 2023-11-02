@@ -56,5 +56,3 @@ async def main():
   # Wait for the user to press Enter to quit
   await asyncio.get_event_loop().run_forever()
 
-if __name__ == "__main__":
-  asyncio.run(main())
