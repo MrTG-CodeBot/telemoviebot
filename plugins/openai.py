@@ -5,7 +5,7 @@ import openai
 import re
 
 # Set your OpenAI API key here
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 openai.api_key = OPENAI_API_KEY
 
 # Authentication code filter
