@@ -1,8 +1,8 @@
 import psutil
 from pyrogram import Client, filters
 
-# Define the /sakura command handler
-@Client.on_message(filters.command("sakura"))
+# Define the /stats command handler
+@Client.on_message(filters.command("stats"))
 def bot_status(client, message):
 
     # Get bot uptime
