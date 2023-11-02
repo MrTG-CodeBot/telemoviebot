@@ -48,8 +48,7 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW
 TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
 OMDB_API_KEY = os.environ.get('42d8ac83')
 BARD_API_TOKEN = os.environ.get('cghU4f6_aFlWI7UHxm4sgWJnuuWkS2k7ROtLr_FGSHjGzMmITZ6S_DuJa4mIpUvRAv7o0g.')
-OPENAI_API_KEY = os.environ.get('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')
-
+OPENAI_API_KEY = os.environ.get('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')
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
