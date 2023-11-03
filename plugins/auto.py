@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 import json
 from info import API_ID, API_HASH, BOT_TOKEN
 
-    @pyrogram.Client.on_message(filters.command("ask"))
+    @Client.on_message(filters.command("ask"))
     def ask(self, client, message):
         # Get the user ID
         user_id = message.from_user.id
