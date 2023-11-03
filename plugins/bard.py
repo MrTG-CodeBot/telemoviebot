@@ -3,6 +3,7 @@ import openai
 from info import API_ID, API_HASH, BOT_TOKEN
 
 # Initialize OpenAI GPT-3 with your API key
+openai.api_key = "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"
 openai.api_key = OPENAI_API_KEY
 
 # Define a function to handle /generate command
