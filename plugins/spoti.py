@@ -3,10 +3,6 @@ from youtube_dl import YoutubeDL
 import ffmpeg
 from info import API_ID, API_HASH, BOT_TOKEN
 
-class SpotifyDownloaderBot(pyrogram.Client):
-  def __init__(self):
-    super().__init__(config_file='config.env')
-
     # Set the default output audio format
     self.output_audio_format = 'mp3'
 
