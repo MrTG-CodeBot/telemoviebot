@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
-import openai  
+import openai
+import reuqests
 from info import API_ID, API_HASH, BOT_TOKEN
 
 # Initialize OpenAI GPT-3 with your API key
