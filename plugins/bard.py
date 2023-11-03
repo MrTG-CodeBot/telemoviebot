@@ -9,7 +9,7 @@ openai.api_key = OPENAI_API_KEY
 
 # Define a function to handle /generate command
 Client.on_message(filters.command("generate", "/generate") & filters.private).on(handle_generate_command)
- async def generate_test(client, message):
+ def generate_test(client, message):
     user_request = message.text[9:]  # Extract user's request
 
     # Use OpenAI GPT-3 to generate a response
