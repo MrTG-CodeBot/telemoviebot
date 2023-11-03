@@ -1,59 +1,25 @@
-import pyrogram
 from pyrogram import Client, filters
-import asyncio
-import re
-from transformers import AutoModelForQuestionAnswering
-from transformers import AutoTokenizer
+import openai  
 from info import API_ID, API_HASH, BOT_TOKEN
 
-# Define the API credentials
-API_ID = "8914119"
-API_HASH = "652bae601b07c928b811bdb310fdb4b0"
-BOT_TOKEN = "6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8"
+# Initialize OpenAI GPT-3 with your API key
+openai.api_key = OPENAI_API_KEY
 
-async def main():
-  # Load the model and tokenizer
-  try:
-    model = AutoModelForQuestionAnswering.from_pretrained("google/bard")
-    tokenizer = AutoTokenizer.from_pretrained("google/bard")
-  except Exception as e:
-    print(e)
-    return
+# Define a function to handle /generate command
+Client.on_message(filters.command("generate", "/generate") & filters.private).on(handle_generate_command)
+ async def generate_test(client, message):
+    user_request = message.text[9:]  # Extract user's request
 
-  # Create a Pyrogram client
-  try:
-    client = Client(BOT_TOKEN)
-  except Exception as e:
-    print(e)
-    return
+    # Use OpenAI GPT-3 to generate a response
+    response = openai.Completion.create(
+        engine="text-davinci-002",  # Choose an appropriate engine
+        prompt=user_request,
+        max_tokens=50  # Adjust the response length
+    )
 
-  # Define a message handler for the /ask command
-  @client.on_message(filters.command("ask"))
-  async def ask_command(client, message):
-    # Get the question from the message text
-    question = message.text.split(" ")[1:]
+    generated_response = response.choices[0].text
 
-    # Generate an answer using the model
-    try:
-      answer = await model.generate(
-          input_ids=tokenizer(question, return_tensors="pt").input_ids,
-          max_length=1024,
-      )[0][0]
-    except Exception as e:
-      print(e)
-      await message.reply_text("An error occurred while generating the answer.")
-      return
+    # Send the generated response back to the user
+    await message.reply(generated_response)
 
-    # Send the answer to the user
-    await message.reply_text(answer)
-
-  # Start the Pyrogram client
-  try:
-    await client.start()
-  except Exception as e:
-    print(e)
-    return
-
-  # Wait for the user to press Enter to quit
-  await asyncio.get_event_loop().run_forever()
-
+# Register the /generate command handler
