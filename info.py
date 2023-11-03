@@ -46,7 +46,7 @@ API_ID = int(os.environ.get('API_ID', '8914119'))
 API_HASH = os.environ.get('API_HASH', '652bae601b07c928b811bdb310fdb4b0')
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
 BARD_API_TOKEN = os.environ.get('cghU4f6_aFlWI7UHxm4sgWJnuuWkS2k7ROtLr_FGSHjGzMmITZ6S_DuJa4mIpUvRAv7o0g.')
-OPENAI_API_KEY = os.environ.get('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')
+OPENAI_API_KEY = os.environ.get('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')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
