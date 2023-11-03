@@ -22,7 +22,6 @@ import pytz
 import aiohttp
 from aiohttp import web
 from plugins import web_server
-from plugins import bard
 
 
 class Bot(Client):
