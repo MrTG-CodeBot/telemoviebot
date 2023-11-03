@@ -45,10 +45,9 @@ SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(os.environ.get('API_ID', '8914119'))
 API_HASH = os.environ.get('API_HASH', '652bae601b07c928b811bdb310fdb4b0')
 BOT_TOKEN = os.environ.get('BOT_TOKEN', '6629383271:AAE1ZdxlW0ZMwbhGNXMdZpCvQZaW4LPDgX8')
-TMDB_API_KEY = os.environ.get('b0d58dcd0ccbe19340aa143daf4c6ad0')
-OMDB_API_KEY = os.environ.get('42d8ac83')
 BARD_API_TOKEN = os.environ.get('cghU4f6_aFlWI7UHxm4sgWJnuuWkS2k7ROtLr_FGSHjGzMmITZ6S_DuJa4mIpUvRAv7o0g.')
 OPENAI_API_KEY = os.environ.get('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')
+
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
@@ -59,8 +58,6 @@ SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/b58f576fed14cd645d2
 # Welcome area
 MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/67a238112341dc2da77d9.jpg")
 MELCOW_VID = environ.get('MELCOW_VID',"https://telegra.ph/file/c3d0547a2cbd37abfe04b.mp4")
-
-
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1342641151').split()]
