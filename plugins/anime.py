@@ -7,7 +7,7 @@ class AnimeBot(Client):
         super().__init__(*args, **kwargs)
 
 @Client.on_message(filters.command("anime_quote") & filters.private & filters.incoming)
- async def on_message(client, message):
+ def anime_quote(client, message):
         try:
             quote = self.get_anime_quote()
             await message.reply_text(quote)
