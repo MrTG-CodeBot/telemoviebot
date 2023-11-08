@@ -11,7 +11,7 @@ async def command(client, message):
     prompt = message.text.split(maxsplit=1)[1]
     response = await bard_ai(prompt)
     await message.reply_text(f"Bard: {response}")
-      async def main() -> None:
+      async def main():
     with app:
         while True:
             prompt = input("You: ")
