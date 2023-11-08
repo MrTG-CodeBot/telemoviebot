@@ -22,7 +22,7 @@ async def on_gif_message(self, message):
     def get_anime_quote(self):
         try:
             response = requests.get('https://animechan.vercel.app/api/random')
-            response.raise_for_status()  # Raises a HTTPError if the status is 4xx, 5xx
+            response.raise_for_status() 
             json = response.json()
             quote = json["quote"]
             anime = json["anime"]
