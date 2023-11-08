@@ -1,8 +1,9 @@
 # LIVDSRZULELA
 from pyrogram import Client, filters
 import requests
+import logging
 
-@filters.command("anime_quote")
+@Client.on_message(filters.command("anime_quote") & filters.private & filters.incoming)
 async def on_message(self, message):
         try:
             quote = self.get_anime_quote()
@@ -10,7 +11,7 @@ async def on_message(self, message):
         except Exception as e:
             logging.error(f"An error occurred: {e}")
 
-@filters.command("anime_gif")
+@Client.on_message(filters.command("anime_gif") & filters.private & filters.incoming)
 async def on_gif_message(self, message):
         try:
             gif_url = self.get_anime_gif()
