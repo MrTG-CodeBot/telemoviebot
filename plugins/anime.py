@@ -6,13 +6,15 @@ class AnimeBot(Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    async def on_message(self, message):
+@Client.on_message(filters.command("anime_quote") & filters.private & filters.incoming)
+ async def on_message(self, message):
         try:
             quote = self.get_anime_quote()
             await message.reply_text(quote)
         except Exception as e:
             logging.error(f"An error occurred: {e}")
 
+@Client.on_message(filters.command("anime_gif") & filters.private & filters.incoming)
     async def on_gif_message(self, message):
         try:
             gif_url = self.get_anime_gif()
