@@ -5,9 +5,10 @@ motor==2.5.1
 marshmallow==3.14.1
 umongo==3.0.1
 pysrt
-requests==2.26.0
-transformers 
-bard
+requests
+charset_normalizer
+urllib3
+chardet
 bs4
 cinemagoer
 Heroku3
