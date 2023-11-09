@@ -5,7 +5,7 @@ from pysrt import SubRipFile
 from info import API_ID, API_HASH, BOT_TOKEN
 
 @client.on_message(filters.command("subtitle"))
-    async def subtitle(client, message):
+async def subtitle(client, message):
         if message.text.startswith('/subtitle'):
             movie_name = message.text.split()[1]
             year = message.text.split()[2]
