@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("generate"))
 async def generate(client, message):
     try:
-        response = requests.get('https://thisanimedoesnotexist.ai/results?seed=0.1234567890123456')
+        response = requests.get('https://thisanimedoesnotexist.ai')
         response.raise_for_status()
     except requests.exceptions.RequestException as err:
         await message.reply_text(f"Failed to generate an image. Error: {err}")
