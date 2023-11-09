@@ -7,18 +7,7 @@ from info import API_ID, API_HASH, BOT_TOKEN
 @client.on_message(filters.command("subtitle"))
 async def subtitle(client, message):
   if message.text.startswith('/subtitle'):
-    movie_name = message.text.split()[1]
-    year = message.text.split()[2]
-
-    try:
-      subtitles_url = await self.get_subtitle_url(movie_name, year)
-
-      subtitle_file = await self.download_subtitle(subtitles_url)
-
-      await self.send_document(message.chat.id, subtitle_file)
-    except Exception as e:
-      print(e)
-      await self.send_message(message.chat.id, f"Failed to download subtitles for {movie_name}: {e}")
+    pass
 
   async def get_subtitle_url(self, movie_name, year):
 
