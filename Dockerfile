@@ -8,17 +8,15 @@ COPY requirements.txt /sakura/
 # Run the pip install command to install the Python dependencies
 RUN pip install -r requirements.txt
 
-RUN python3 -m pip install --upgrade pip
-
 RUN pip install pyrogram 
 
 RUN pip install --upgrade pyrogram
 
 RUN pip install --upgrade requests
 
-RUN pip install urllib3 chardet
+RUN pip install --upgrade chardet
 
-RUN pip install web
+RUN pip install --upgrade charset_normalizer
 
 COPY ..
 
