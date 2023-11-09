@@ -11,7 +11,7 @@ async def generate(client, message):
         await message.reply_text(f"Failed to generate an image. Error: {err}")
         return
 
-    file_name = f"anime_character_{message.message_id}.jpg"
+    file_name = f"anime_character.jpg"
     try:
         with open(file_name, 'wb') as file:
             file.write(response.content)
