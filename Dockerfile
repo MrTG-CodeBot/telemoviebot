@@ -18,8 +18,6 @@ RUN pip install --upgrade requests
 
 RUN pip install urllib3 chardet
 
-RUN pip install bard-py
-
 RUN pip install web
 
 COPY ..
