@@ -13,6 +13,7 @@ from info import ADMINS, AUTH_CHANNEL, FILE_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAP
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, SPELL_IMG, MSG_ALRT, FILE_FORWARD, MAIN_CHANNEL, LOG_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
+from typing import Optional
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
@@ -37,25 +38,27 @@ FILTER_MODE = {}
 
 @Client.on_message(filters.command('autofilter'))
 async def fil_mod(client, message): 
-      mode_on = ["yes", "on", "true"]
-      mode_of = ["no", "off", "false"]
+    mode_on = ["yes", "on", "true"]
+    mode_off = ["no", "off", "false"]
 
-      try: 
-         args = message.text.split(None, 1)[1].lower() 
-      except: 
-         return await message.reply("**𝙸𝙽𝙲𝙾𝙼𝙿𝙴𝚃𝙴𝙽𝚃 𝙲𝙾𝙼𝙼𝙰𝙳...**")
-      
-      m = await message.reply("**𝚂𝙴𝚃𝚃𝙸𝙽𝙶.../**")
+    args: Optional[str] = None
+    try: 
+        args = message.text.split(None, 1)[1].lower() 
+    except IndexError: 
+        return await message.reply("**Incomplete command...**")
+    
+    m = await message.reply("**Setting...**")
 
-      if args in mode_on:
-          FILTER_MODE[str(message.chat.id)] = "True" 
-          await m.edit("**𝙰𝚄𝚃𝙾𝙵𝙸𝙻𝚃𝙴𝚁 𝙴𝙽𝙰𝙱𝙻𝙴𝙳**")
-      
-      elif args in mode_of:
-          FILTER_MODE[str(message.chat.id)] = "False"
-          await m.edit("**𝙰𝚄𝚃𝙾𝙵𝙸𝙻𝚃𝙴𝚁 𝙳𝙸𝚂𝙰𝙱𝙻𝙴𝙳**")
-      else:
-          await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
+    if args in mode_on:
+        FILTER_MODE[str(message.chat.id)] = "True" 
+        await m.edit("**Autofilter enabled**")
+    
+    elif args in mode_off:
+        FILTER_MODE[str(message.chat.id)] = "False"
+        await m.edit("**Autofilter disabled**")
+    else:
+        await m.edit("Use: /autofilter on OR /autofilter off")
+
 
 @Client.on_message((filters.group) & filters.text & filters.incoming)
 async def give_filter(client,message):
