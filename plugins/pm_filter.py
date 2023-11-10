@@ -562,7 +562,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📁sᴛᴀᴛs', callback_data='stats')
             ],[
             InlineKeyboardButton('😈 ᴏᴡɴ ɪɴғᴏ', url='https://t.me/amal_nath_05'),
-            InlineKeyboardButton('⚙️ ꜱᴀᴋᴜʀᴀ ᴜᴘᴅᴀᴛᴇ',callback_data='sakura')
             ],[
             InlineKeyboardButton('🏠 ʜᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔒 ᴄʟᴏꜱᴇ', callback_data="close_data")
@@ -694,42 +693,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "sakura":
-        buttons = [[
-            InlineKeyboardButton('🎭 ɢᴇɴʀᴇ',callback_data='genre'),
-            InlineKeyboardButton('🎟 ᴜᴘᴄᴏᴍɪɴɢ ᴍᴏᴠɪᴇs', callback_data='upcomingmovies')
-            ],[
-            InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='help'),
-            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SAKURA_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "genre":
-        buttons = [[
-            InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='sakura'),
-            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.GENRE_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "upcomingmovies":
-        buttons = [[
-            InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='sakura'),
-            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.UPCOMINGMOVIES_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-       )
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
         grpid = await active_connection(str(query.from_user.id))
