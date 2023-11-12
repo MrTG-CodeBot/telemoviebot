@@ -12,7 +12,9 @@ RUN pip install pyrogram
 
 RUN pip install --upgrade pyrogram
 
-RUN pip install pyrogram pydub speech_recognition
+RUN pip install pyrogram pydub 
+
+RUN speech_recognition
 
 RUN pip install --upgrade requests
 
