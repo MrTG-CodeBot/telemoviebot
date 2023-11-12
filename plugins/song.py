@@ -10,9 +10,9 @@ import os
 import ffmpeg
 
 # Initialize Spotify API
-sp = Spotify(auth_manager=SpotifyOAuth(client_id="YOUR_SPOTIFY_CLIENT_ID",
-                                     client_secret="YOUR_SPOTIFY_CLIENT_SECRET",
-                                     redirect_uri="YOUR_SPOTIFY_REDIRECT_URI"))
+sp = Spotify(auth_manager=SpotifyOAuth(client_id="d211d50a2fd04b1fab37f49138efe3c6",
+                                     client_secret="82cb098c25684ded949137884b5c0b17",
+                                     redirect_uri="https://sakura.com/callback"))
 
 # Initialize YouTube downloader
 ydl_opts = {"format": "bestaudio/bestvideo[ext=mp4]+bestaudio/best[ext=m4a]/mp3"}
