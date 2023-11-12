@@ -121,7 +121,7 @@ def download_song(message, callback_data):
                     os.system(f"ffmpeg -i music/{track_id}.mp3 -acodec pcm_s16le -ac 2 -ar 44100 music/{track_id}.wav")
 
                     # Send audio file to chat
-                   Client.send_audio(chat_id, f"music/{track_id}.wav")
+                   Client.send_audio(chat_id, f"music/{track_id}.mp3")
                 else:
                     Client.send_message(chat_id, "Sorry, the song preview is not available.")
             else:
