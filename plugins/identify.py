@@ -3,7 +3,7 @@ from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pydub import AudioSegment
 import speech_recognition as sr
-from info import API_ID, API_HASH, BOT _TOKEN
+from info import API_ID, API_HASH, BOT_TOKEN
 
 @Client.on_message(pyrogram.filters.voice)
 async def handle_voice_message(message):
