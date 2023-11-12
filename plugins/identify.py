@@ -7,19 +7,6 @@ import speech_recognition as sr
 from info import API_ID, API_HASH, BOT_TOKEN
 
 
-def transcribe_audio(file_path):
-    audio_data = sr.AudioFile(file_path)
-    r = sr.Recognizer()
-    with audio_data as source:
-        audio_content = r.record(source)
-    try:
-        return r.recognize_google(audio_content)
-    except sr.UnknownValueError:
-        return None
-    except sr.RequestError as e:
-        print(f"Error: {e}")
-        return None
-
 @Client.on_message(filters.voice)
 async def handle_voice_message(client, message):
     voice_message = await message.download()
