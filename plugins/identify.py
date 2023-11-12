@@ -6,6 +6,7 @@ from pydub import AudioSegment
 import speech_recognition as sr
 from info import API_ID, API_HASH, BOT_TOKEN
 
+
 def transcribe_audio(file_path):
     audio_data = sr.AudioFile(file_path)
     r = sr.Recognizer()
@@ -19,8 +20,8 @@ def transcribe_audio(file_path):
         print(f"Error: {e}")
         return None
 
-@Client.on_message(filters.voice)
-async def handle_voice_message(message):
+@app.on_message(filters.voice)
+async def handle_voice_message(client, message):
     voice_message = await message.download()
     voice_segment = AudioSegment.from_file(voice_message)
     voice_file_path = f"{uuid.uuid4()}.mp3"
@@ -33,8 +34,8 @@ async def handle_voice_message(message):
         await message.reply_text("Sorry, I couldn't identify the song.")
     os.remove(voice_file_path)
 
-@Client.on_message(filters.video)
-async def handle_video_message(message):
+@app.on_message(filters.video)
+async def handle_video_message(client, message):
     if message.video.file_size > 5 * 1024 * 1024:
         await message.reply_text("Sorry, the video file is too large to process.")
         return
@@ -49,3 +50,4 @@ async def handle_video_message(message):
     else:
         await message.reply_text("Sorry, I couldn't identify the song.")
     os.remove(voice_file_path)
+
