@@ -20,7 +20,7 @@ def transcribe_audio(file_path):
         print(f"Error: {e}")
         return None
 
-@app.on_message(filters.voice)
+@Client.on_message(filters.voice)
 async def handle_voice_message(client, message):
     voice_message = await message.download()
     voice_segment = AudioSegment.from_file(voice_message)
@@ -34,7 +34,7 @@ async def handle_voice_message(client, message):
         await message.reply_text("Sorry, I couldn't identify the song.")
     os.remove(voice_file_path)
 
-@app.on_message(filters.video)
+@Client.on_message(filters.video)
 async def handle_video_message(client, message):
     if message.video.file_size > 5 * 1024 * 1024:
         await message.reply_text("Sorry, the video file is too large to process.")
