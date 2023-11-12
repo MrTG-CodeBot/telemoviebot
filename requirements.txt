@@ -10,7 +10,7 @@ charset_normalizer
 urllib3
 chardet
 pydub
-SpeechRecognition==3.10.0
+SpeechRecognition==3.9.0
 bs4
 cinemagoer
 Heroku3
