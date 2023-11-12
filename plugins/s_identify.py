@@ -45,7 +45,7 @@ def recognize_command(client, message):
         client.send_message(message.chat.id, "Please send an audio file for recognition.")
     
     # Make a POST request with the audio file
-    with open(audio_file, 'rb') as file:
+    with open(filename, 'rb') as file:
         files = {'file': file}
         response = requests.post(url, headers=headers, files=files)
 
