@@ -9,8 +9,7 @@ requests
 charset_normalizer
 urllib3
 chardet
-pydub
-SpeechRecognition==3.9.0
+acrcloud==1.1.0
 bs4
 cinemagoer
 Heroku3
