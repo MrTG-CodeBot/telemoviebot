@@ -1,6 +1,6 @@
 import logging
 from pyrogram import Client, filters
-from acrcloud_sdk_python.acrcloud_recognizer import ACRCloudRecognizer
+from acrcloud.recognizer import ACRCloudRecognizer
 from info import API_ID, API_HASH, BOT_TOKEN
 
 logging.basicConfig(level=logging.INFO)
