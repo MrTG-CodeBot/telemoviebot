@@ -1,4 +1,5 @@
 import pyrogram
+from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pydub import AudioSegment
 import speech_recognition as sr
