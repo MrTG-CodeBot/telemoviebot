@@ -15,7 +15,7 @@ def recognize_music(audio_file):
     # Replace 'YOUR_ACR_API_KEY' and 'YOUR_ACR_API_SECRET' with actual ACRCloud credentials
     url = "http://identify.acrcloud.com/v1/identify"
     headers = {
-        'host':'identify-ap-southeast-1.acrcloud.com'
+        'host':'identify-ap-southeast-1.acrcloud.com',
         'access_key': '0db9a34202c7797b535cba436dc24d07',
         'access_secret': 'XgSS5vWJ172QYhulX9WABchXNekBflz6mei5bJCy',
         'Content-Type': 'application/octet-stream'
