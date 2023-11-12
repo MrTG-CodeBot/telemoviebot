@@ -1,5 +1,5 @@
 import pyrogram
-from pyrogram import Client, Filters, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, filters, InlineKeyboardMarkup, InlineKeyboardButton
 from pydub import AudioSegment
 from spotipy import Spotify
 from fuzzywuzzy import fuzz
