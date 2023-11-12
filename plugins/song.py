@@ -8,6 +8,7 @@ import requests
 import json
 import os
 import ffmpeg
+from info import API_ID, API_HASH, BOT_TOKEN
 
 # Initialize Spotify API
 sp = Spotify(auth_manager=SpotifyOAuth(client_id="d211d50a2fd04b1fab37f49138efe3c6",
