@@ -3,8 +3,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pydub import AudioSegment
 import speech_recognition as sr
 
-bot = pyrogram.Client("my_bot", api_id=YOUR_API_ID, api_hash=YOUR_API_HASH)
-
 @bot.on_message(pyrogram.filters.voice)
 async def handle_voice_message(message):
     # Download the voice message
