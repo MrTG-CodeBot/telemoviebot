@@ -9,6 +9,8 @@ requests
 charset_normalizer
 urllib3
 chardet
+pydub
+speech_recognition
 bs4
 cinemagoer
 Heroku3
