@@ -5,11 +5,6 @@ from pyrogram import Client, filters
 import requests
 import json
 
-# Initialize the Telegram bot
-api_id = YOUR_API_ID
-api_hash = 'YOUR_API_HASH'
-bot_token = 'YOUR_BOT_TOKEN'
-
 # Supported audio formats
 supported_audio_formats = ['mp3', 'wav', 'flac', 'ogg']
 
