@@ -10,7 +10,7 @@ charset_normalizer
 urllib3
 chardet
 pydub
-speech_recognition
+SpeechRecognition==3.10.0
 bs4
 cinemagoer
 Heroku3
@@ -31,4 +31,3 @@ dnspython
 python-math
 Pillow
 speedtest-cli
-
