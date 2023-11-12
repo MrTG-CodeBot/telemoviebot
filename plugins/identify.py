@@ -40,5 +40,3 @@ async def handle_voice_message(message):
     except sr.RequestError as e:
         # If there is an error with the speech recognition API, send a message with the error
         await message.reply_text(f"Error: {e}")
-
-bot.run()
