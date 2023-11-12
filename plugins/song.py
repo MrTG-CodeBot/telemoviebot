@@ -11,8 +11,8 @@ import ffmpeg
 
 # Initialize Spotify API
 sp = Spotify(auth_manager=SpotifyOAuth(client_id="YOUR_SPOTIFY_CLIENT_ID",
-                                      client_secret="YOUR_SPOTIFY_CLIENT_SECRET",
-                                      redirect_uri="YOUR_SPOTIFY_REDIRECT_URI"))
+                                     client_secret="YOUR_SPOTIFY_CLIENT_SECRET",
+                                     redirect_uri="YOUR_SPOTIFY_REDIRECT_URI"))
 
 # Initialize YouTube downloader
 ydl_opts = {"format": "bestaudio/bestvideo[ext=mp4]+bestaudio/best[ext=m4a]/mp3"}
@@ -105,7 +105,7 @@ def download_song(message, callback_data):
     if action == "download_spotify":
         # Get song details from Spotify API
         try:
-                        song_info = sp.track(track_id)
+            song_info = sp.track(track_id)
             track_name = song_info["name"]
             artist_name = song_info["artists"][0]["name"]
             audio_url = song_info["preview_url"]
