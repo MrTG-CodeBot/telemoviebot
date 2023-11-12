@@ -12,6 +12,8 @@ RUN pip install pyrogram
 
 RUN pip install --upgrade pyrogram
 
+RUN pip install pyrogram pydub speech_recognition
+
 RUN pip install --upgrade requests
 
 RUN pip install --upgrade chardet
