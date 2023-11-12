@@ -76,7 +76,7 @@ def search_song(query):
     keyboard = InlineKeyboardMarkup(rows=[buttons])
 
     # Send message with inline keyboard
-    app.send_message(chat_id, "Select the song you want to download:", reply_markup=keyboard)
+    Client.send_message(chat_id, "Select the song you want to download:", reply_markup=keyboard)
 
 # Download song from YouTube or Spotify
 def download_song(message, callback_data):
@@ -121,12 +121,13 @@ def download_song(message, callback_data):
                     os.system(f"ffmpeg -i music/{track_id}.mp3 -acodec pcm_s16le -ac 2 -ar 44100 music/{track_id}.wav")
 
                     # Send audio file to chat
-                   Client.send_audio(chat_id, f"music/{track_id}.mp3")
+                    Client.send_audio(chat_id, f"music/{track_id}.wav")  # Corrected indentation
                 else:
                     Client.send_message(chat_id, "Sorry, the song preview is not available.")
             else:
                 Client.send_message(chat_id, "Sorry, the song preview is not available.")
         except:
             Client.send_message(chat_id, "Error downloading song from Spotify")
+
 
 
