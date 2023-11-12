@@ -15,11 +15,35 @@ def recognize_music(audio_file):
     # Replace 'YOUR_ACR_API_KEY' and 'YOUR_ACR_API_SECRET' with actual ACRCloud credentials
     url = "http://identify.acrcloud.com/v1/identify"
     headers = {
+        'host':'identify-ap-southeast-1.acrcloud.com'
         'access_key': '0db9a34202c7797b535cba436dc24d07',
         'access_secret': 'XgSS5vWJ172QYhulX9WABchXNekBflz6mei5bJCy',
         'Content-Type': 'application/octet-stream'
     }
 
+# Command to recognize music
+@Client.on_message(filters.command("recognize"))
+def recognize_command(client, message):
+    # Check if the message contains an audio file
+    if message.audio:
+        audio_file = message.download()
+        audio_extension = audio_file.split('.')[-1]
+
+        # Check if the audio format is supported
+        if audio_extension.lower() not in supported_audio_formats:
+            client.send_message(message.chat.id, f"Unsupported audio format: {audio_extension}. Supported formats: {', '.join(supported_audio_formats)}")
+            return
+
+        result = recognize_music(audio_file)
+
+        # Send the recognition result back to the user
+        if result:
+            client.send_message(message.chat.id, f"Music recognized:\n\nTitle: {result['title']}\nArtist: {result['artist']}\nAlbum: {result['album']}\nGenre: {result['genre']}\nRelease Date: {result['release_date']}")
+        else:
+            client.send_message(message.chat.id, "Failed to recognize music. Please try again.")
+    else:
+        client.send_message(message.chat.id, "Please send an audio file for recognition.")
+    
     # Make a POST request with the audio file
     with open(audio_file, 'rb') as file:
         files = {'file': file}
@@ -45,28 +69,3 @@ def recognize_music(audio_file):
         }
     except:
         return None
-
-# Command to recognize music
-@Client.on_message(filters.command("recognize"))
-def recognize_command(client, message):
-    # Check if the message contains an audio file
-    if message.audio:
-        audio_file = message.download()
-        audio_extension = audio_file.split('.')[-1]
-
-        # Check if the audio format is supported
-        if audio_extension.lower() not in supported_audio_formats:
-            client.send_message(message.chat.id, f"Unsupported audio format: {audio_extension}. Supported formats: {', '.join(supported_audio_formats)}")
-            return
-
-        result = recognize_music(audio_file)
-
-        # Send the recognition result back to the user
-        if result:
-            client.send_message(message.chat.id, f"Music recognized:\n\nTitle: {result['title']}\nArtist: {result['artist']}\nAlbum: {result['album']}\nGenre: {result['genre']}\nRelease Date: {result['release_date']}")
-        else:
-            client.send_message(message.chat.id, "Failed to recognize music. Please try again.")
-    else:
-        client.send_message(message.chat.id, "Please send an audio file for recognition.")
-
-
