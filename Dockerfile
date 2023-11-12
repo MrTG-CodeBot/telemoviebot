@@ -12,9 +12,7 @@ RUN pip install pyrogram
 
 RUN pip install --upgrade pyrogram
 
-RUN pip install pyrogram pydub 
-
-RUN speech_recognition
+RUN pip install acr-cloud==0.1.2
 
 RUN pip install --upgrade requests
 
