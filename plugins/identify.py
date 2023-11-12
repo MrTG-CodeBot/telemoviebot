@@ -3,16 +3,14 @@ import acrcloud
 import requests
 
 config = {
-    'host':'host',
-    'key':'api_key',
-    'secret':'api_secret',
+    'host':'identify-ap-southeast-1.acrcloud.com',
+    'key':'0db9a34202c7797b535cba436dc24d07',
+    'secret':'XgSS5vWJ172QYhulX9WABchXNekBflz6mei5bJCy',
 }
 
 acrcloud_client = acrcloud.ACRCloudRecognizer(config)
 
-app = Client("my_bot", bot_token="your_bot_token")
-
-@app.on_message(filters.voice | filters.audio)
+@Client.on_message(filters.voice | filters.audio)
 async def song_recognizer(client, message):
     song = await message.download()
     result = acrcloud_client.recognize_by_file(song, 0)
