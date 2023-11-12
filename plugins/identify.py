@@ -5,6 +5,7 @@ from pydub import AudioSegment
 import speech_recognition as sr
 from info import API_ID, API_HASH, BOT_TOKEN
 
+# Define a function to handle voice messages
 @Client.on_message(pyrogram.filters.voice)
 async def handle_voice_message(message):
     # Download the voice message
@@ -42,12 +43,13 @@ async def handle_voice_message(message):
         # If there is an error with the speech recognition API, send a message with the error
         await message.reply_text(f"Error: {e}")
 
+# Define a function to handle video messages
 @Client.on_message(pyrogram.filters.video)
 async def handle_video_message(message):
     # Check if the video file size is less than 5 MB
     video_file = await message.download()
     video_file_size = os.path.getsize(video_file.name)
-    if video_file_size > 5 * 1024 * 1024:  
+    if video_file_size > 5 * 1024 * 1024:
         # Send an error message if the video file size is too large
         await message.reply_text("Sorry, the video file is too large to process.")
         return
@@ -83,5 +85,4 @@ async def handle_video_message(message):
         # If speech recognition fails, send a message saying that the song could not be identified
         await message.reply_text("Sorry, I couldn't identify the song.")
     except sr.RequestError as e:
-        # If there is an error with the speech recognition API, send a message with the error
-        await message.reply_text(f"Error: {e}")
+        # If there is an error with the speech
