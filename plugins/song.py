@@ -1,5 +1,6 @@
 import pyrogram
-from pyrogram import Client, filters, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, filters 
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pydub import AudioSegment
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth  
