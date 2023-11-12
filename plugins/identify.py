@@ -5,6 +5,9 @@ from pydub import AudioSegment
 import speech_recognition as sr
 from info import API_ID, API_HASH, BOT_TOKEN
 
+# Create a Pyrogram client instance
+app = Client("MusicIdentifierBot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+
 # Define a function to handle voice messages
 @Client.on_message(pyrogram.filters.voice)
 async def handle_voice_message(message):
@@ -77,7 +80,6 @@ async def handle_video_message(message):
                     InlineKeyboardButton("Listen on Spotify", url=f"https://open.spotify.com/search?q={song_text}"),
                 ]
             ]
-        )
 
         # Send a message with the song title and artist and the inline keyboard
         await message.reply_text(f"Song: {song_text}", reply_markup=keyboard)
@@ -85,4 +87,5 @@ async def handle_video_message(message):
         # If speech recognition fails, send a message saying that the song could not be identified
         await message.reply_text("Sorry, I couldn't identify the song.")
     except sr.RequestError as e:
-        # If there is an error with the speech
+        # If there is an error with the speech recognition API, send a message with the error
+        await message.reply_text(f"Error: {e}")
