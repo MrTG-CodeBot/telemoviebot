@@ -1,6 +1,19 @@
+import requests
 from pyrogram import Client, filters
 import acrcloud
-import requests
+from info import API_ID, API_HASH, BOT_TOKEN
+
+def get_spotify_token(client_id, client_secret):
+    auth_url = 'https://accounts.spotify.com/api/token'
+    auth_response = requests.post(auth_url, {
+        'grant_type': 'client_credentials',
+        'client_id': client_id,
+        'client_secret': client_secret,
+    })
+
+    auth_response_data = auth_response.json()
+    access_token = auth_response_data['access_token']
+    return access_token
 
 config = {
     'host':'identify-ap-southeast-1.acrcloud.com',
@@ -22,7 +35,7 @@ async def song_recognizer(client, message):
     # Download the song
     search_query = f"{song_name} {artist_name}"
     download_url = "https://api.spotify.com/v1/search"  # Replace with the actual API
-    headers = {"Authorization": "Bearer your_token"}  # Replace with your actual token
+    headers = {"Authorization": f"Bearer {get_spotify_token('your_spotify_client_id', 'your_spotify_client_secret')}"}  # Replace with your actual token
     params = {"q": search_query, "type": "track"}
     response = requests.get(download_url, headers=headers, params=params)
     download_link = response.json()['tracks']['items'][0]['preview_url']
@@ -30,5 +43,3 @@ async def song_recognizer(client, message):
     with open(f"{song_name}.mp3", "wb") as f:
         f.write(song_data)
     await message.reply_audio(audio=f"{song_name}.mp3")
-
-
