@@ -83,4 +83,4 @@ async def handle_new_file_name(client, message):
             # Edit message to inform user of successful renaming
             await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
         except Exception as e:
-            logging.error
+            logging.error(f"Failed to rename file: {e}")  
