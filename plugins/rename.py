@@ -1,3 +1,4 @@
+import os
 import pyrogram
 from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWaitError
@@ -5,7 +6,7 @@ import asyncio
 from info import API_ID, API_HASH, BOT_TOKEN
 import tqdm
 
-@Client.on_message(filters.command("rename") & filters.document)
+@Client.on_message(pyrogram.filters.command("rename") & pyrogram.filters.document)
 async def rename_document(client, message):
     file_id = message.document.file_id
     file_name = message.document.file_name
@@ -25,7 +26,7 @@ async def rename_document(client, message):
     # Send the inline keyboard to the user
     message = await message.reply_text("Select an option:", reply_markup=keyboard)
 
-@Client.on_callback_query(filters.regex(r"^rename_\d+$"))
+@Client.on_callback_query(pyrogram.filters.regex(r"^rename_\d+$"))
 async def handle_rename_callback(client, callback_query):
     file_id = int(callback_query.data.split("_")[1])
 
@@ -38,8 +39,8 @@ async def handle_rename_callback(client, callback_query):
     # Send a message to the user asking for the new file name
     message = await callback_query.message.edit_text("Enter the new file name:")
 
-    @Client.on_message(filters.from_user(callback_query.from_user.id))
-    async def handle_new_file_name(client, message):
+@Client.on_message(pyrogram.filters.from_user(callback_query.from_user.id))
+async def handle_new_file_name(client, message):
         new_file_name = message.text
 
         # Download the file from Telegram with progress bar
@@ -67,3 +68,11 @@ async def handle_rename_callback(client, callback_query):
             await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
         except Exception as e:
             await callback_query.message.edit_text(f"Failed to rename file: {e}", reply_markup=None)
+
+@Client.on_message(pyrogram.filters.command("re_help"))
+async def help_command(client, message):
+    help_text = """
+    Here are the commands you can use:
+    /rename: Rename a document. Reply to a document with /rename to use this command.
+    """
+    await message.reply_text(help_text)
