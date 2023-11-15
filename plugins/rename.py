@@ -1,6 +1,6 @@
 import os
 import pyrogram
-from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import Client, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWaitError
 import asyncio
 from info import API_ID, API_HASH, BOT_TOKEN
