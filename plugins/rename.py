@@ -1,12 +1,20 @@
 import pyrogram
-from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWaitError
+import asyncio
+from info import API_ID, API_HASH, BOT_TOKEN
+import tqdm
 
 @Client.on_message(filters.command("rename") & filters.document)
-def rename_document(client, message):
+async def rename_document(client, message):
     file_id = message.document.file_id
     file_name = message.document.file_name
 
-    # Create an inline keyboard with two buttons: "Rename" and "Cancel"
+    # Check if the file size is less than 2 GB
+    if message.document.file_size > 2097152000:
+        await message.reply_text("Sorry, files larger than 2 GB cannot be renamed.")
+        return
+
     keyboard = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton("Rename", callback_data=f"rename_{file_id}"),
@@ -15,33 +23,47 @@ def rename_document(client, message):
     )
 
     # Send the inline keyboard to the user
-    message.reply_text("Select an option:", reply_markup=keyboard)
+    message = await message.reply_text("Select an option:", reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex(r"^rename_\d+$"))
-def handle_rename_callback(client, callback_query):
+async def handle_rename_callback(client, callback_query):
     file_id = int(callback_query.data.split("_")[1])
 
-# Get the current file name
-    current_filename = document.file_name
+    # Get the current file name
+    current_filename = await client.get_file_info(file_id).file_name
 
-    # Ask the user for the new file name
-    await message.reply_text(f"Current file name: {current_filename}")
+    # Send a message to the user with the current file name
+    await callback_query.message.edit_text(f"Current file name: {current_filename}")
 
-    # Ask the user for the new file name
-    message = callback_query.message.edit_text("Enter the new file name:")
+    # Send a message to the user asking for the new file name
+    message = await callback_query.message.edit_text("Enter the new file name:")
 
-    # Wait for the user to reply with the new file name
-@Client.on_message(filters.from_user(callback_query.from_user.id))
-def handle_new_file_name(client, message):
+    @Client.on_message(filters.from_user(callback_query.from_user.id))
+    async def handle_new_file_name(client, message):
         new_file_name = message.text
 
-        # Try to rename the file
+        # Download the file from Telegram with progress bar
+        total_size = message.document.file_size
+        with tqdm.tqdm(total=total_size) as pbar:
+            try:
+                document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
+            except FloodWaitError as e:
+                await asyncio.sleep(e.x)
+                document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
+
+        # Rename the downloaded file
         try:
-            client.download_media(file_id, file_name=new_file_name)
-            message.reply_text(f"File renamed to {new_file_name}")
+            os.rename(document.file_name, new_file_name)
+
+            # Upload the renamed file to Telegram with progress bar
+            total_size = os.path.getsize(new_file_name)
+            with tqdm.tqdm(total=total_size) as pbar:
+                await client.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
+
+            # Delete the downloaded file
+            os.remove(new_file_name)
+
+            # Edit the message to inform the user that the file has been renamed
+            await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
         except Exception as e:
-            message.reply_text(f"Failed to rename file: {e}")
-
-        # Remove the inline keyboard
-        callback_query.message.edit_text("File renamed")
-
+            await callback_query.message.edit_text(f"Failed to rename file: {e}", reply_markup=None)
