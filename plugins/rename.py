@@ -31,8 +31,8 @@ def handle_rename_callback(client, callback_query):
     message = callback_query.message.edit_text("Enter the new file name:")
 
     # Wait for the user to reply with the new file name
-    @Client.on_message(filters.from_user(callback_query.from_user.id))
-    def handle_new_file_name(client, message):
+@Client.on_message(filters.from_user(callback_query.from_user.id))
+def handle_new_file_name(client, message):
         new_file_name = message.text
 
         # Try to rename the file
