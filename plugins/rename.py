@@ -70,7 +70,6 @@ async def handle_new_file_name(client, message):
 
         # Rename downloaded file
         try:
-            try:
     os.rename(document.file_name, new_file_name)
 
     # Upload renamed file with progress bar
@@ -90,5 +89,6 @@ async def handle_new_file_name(client, message):
     await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
 except Exception as e:
     logging.error(f"Failed to rename file: {e}")
+
 
   
