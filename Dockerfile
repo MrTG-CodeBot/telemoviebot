@@ -12,7 +12,7 @@ RUN pip install pyrogram
 
 RUN pip install --upgrade pyrogram
 
-RUN pip install acrcloud.recognizer
+RUN pip install tqdm
 
 RUN pip install --upgrade requests
 
