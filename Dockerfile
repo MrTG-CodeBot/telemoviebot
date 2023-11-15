@@ -14,12 +14,6 @@ RUN pip install --upgrade pyrogram
 
 RUN pip install tqdm
 
-RUN pip install --upgrade requests
-
-RUN pip install --upgrade chardet
-
-RUN pip install --upgrade charset_normalizer
-
 COPY ..
 
 CMD ["python3", "bot.py"]
