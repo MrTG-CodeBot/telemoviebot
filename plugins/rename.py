@@ -70,12 +70,18 @@ async def handle_new_file_name(client, message):
 
         # Rename downloaded file
         try:
+            try:
     os.rename(document.file_name, new_file_name)
 
     # Upload renamed file with progress bar
     total_size = os.path.getsize(new_file_name)
     with tqdm.tqdm(total=total_size) as pbar:
-        await app.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
+        try:
+            await app.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
+        except FloodWaitError as e:
+            logging.warning(f"FloodWaitError during file upload: {e}")
+            await asyncio.sleep(e.x)
+            await app.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
 
     # Delete downloaded file
     os.remove(new_file_name)
@@ -83,5 +89,6 @@ async def handle_new_file_name(client, message):
     # Edit message to inform user of successful renaming
     await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
 except Exception as e:
-    logging.error(f"Failed to rename file: {e}")  # Enclose string formatting in parentheses
+    logging.error(f"Failed to rename file: {e}")
+
   
