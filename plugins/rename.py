@@ -1,7 +1,7 @@
 import logging
 import pyrogram
 from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors import FloodWaitError
+from pyrogram.errors import FloodWait
 import asyncio
 from info import API_ID, API_HASH, BOT_TOKEN
 import tqdm
@@ -70,17 +70,18 @@ async def handle_new_file_name(client, message):
 
         # Rename downloaded file
         try:
-            os.rename(document.file_name, new_file_name)
+    os.rename(document.file_name, new_file_name)
 
-            # Upload renamed file with progress bar
-            total_size = os.path.getsize(new_file_name)
-            with tqdm.tqdm(total=total_size) as pbar:
-                await app.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
+    # Upload renamed file with progress bar
+    total_size = os.path.getsize(new_file_name)
+    with tqdm.tqdm(total=total_size) as pbar:
+        await app.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
 
-            # Delete downloaded file
-            os.remove(new_file_name)
+    # Delete downloaded file
+    os.remove(new_file_name)
 
-            # Edit message to inform user of successful renaming
-            await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
-        except Exception as e:
-            logging.error(f"Failed to rename file: {e}")  
+    # Edit message to inform user of successful renaming
+    await callback_query.message.edit_text(f"File renamed to {new_file_name}", reply_markup=None)
+except Exception as e:
+    logging.error(f"Failed to rename file: {e}")  # Enclose string formatting in parentheses
+  
