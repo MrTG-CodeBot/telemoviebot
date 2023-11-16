@@ -11,7 +11,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 @Client.on_message(pyro.filters.command("rename") & pyro.filters.document)
 async def rename_document(client, message):
-try:
     # Replace the invalid character with a valid character
     file_id = message.document.file_id
     file_name = message.document.file_name
@@ -40,7 +39,6 @@ try:
 
 @Client.on_callback_query(pyro.filters.regex(r"^rename_\d+$"))
 async def handle_rename_callback(client, callback_query):
-  try:
     file_id = int(callback_query.data.split("_")[1])
 
     # Get current file name
@@ -57,13 +55,11 @@ async def handle_rename_callback(client, callback_query):
 
 @Client.on_message(pyro.filters.chat(callback_query.from_user.chat.id) & pyro.filters.from_user(callback_query.from_user.id))
 async def handle_new_file_name(client, message):
-  try:
     new_file_name = message.text
 
     # Download file with progress bar
     total_size = message.document.file_size
     with tqdm.tqdm(total=total_size) as pbar:
-      try:
         document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
       except FloodWaitError as e:
         logging.warning(f"FloodWaitError during file download: {e}")
@@ -76,7 +72,6 @@ async def handle_new_file_name(client, message):
   # Upload renamed file with progress bar
   total_size = os.path.getsize(new_file_name)
   with tqdm.tqdm(total=total_size) as pbar:
-    try:
       await client.send_document(message.chat.id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
     except FloodWaitError as e:
       logging.warning(f"FloodWaitError during file upload: {e}")
