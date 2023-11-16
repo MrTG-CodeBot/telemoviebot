@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 ongoing_renames = {}
 
 # Define the command handler
-@Client.on_message(pyrogram.filters.command("rename") & pyrogram.filters.document)
+@Client.on_message(pyrogram.filters.command("rename") & filters.document)
 async def rename_document(client, message):
     file_id = message.document.file_id
     file_name = message.document.file_name
@@ -48,7 +48,7 @@ async def handle_rename_callback(client, callback_query):
     message = await callback_query.message.edit_text("Enter the new file name:")
 
 # Define the message handler for receiving the new file name
-@Client.on_message(pyrogram.filters.text & ~pyrogram.filters.edited & pyrogram.filters.private)
+@Client.on_message(pyrogram.filters.text & ~filters.edited & filters.private)
 async def handle_new_file_name(client, message):
     user_id = message.from_user.id
 
