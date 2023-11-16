@@ -48,7 +48,7 @@ async def handle_rename_callback(client, callback_query):
     message = await callback_query.message.edit_text("Enter the new file name:")
 
 # Define the message handler for receiving the new file name
-@Client.on_message(pyrogram.filters.text & ~filters.edited & filters.private)
+@Client.on_message(filters.text & ~filters.edited & filters.private)
 async def handle_new_file_name(client, message):
     user_id = message.from_user.id
 
