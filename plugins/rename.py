@@ -3,9 +3,8 @@ import logging
 import os
 import tqdm
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
-from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
-from info import API_ID, API_HASH, BOT_TOKEN
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -49,13 +48,12 @@ async def handle_rename_callback(client, callback_query):
     message = await callback_query.message.edit_text("Enter the new file name:")
 
 # Define the message handler for receiving the new file name
-@Client.on_message(pyrogram.filters.text & pyrogram.filters.chat)
+@Client.on_message(pyrogram.filters.text & ~pyrogram.filters.edited & pyrogram.filters.private)
 async def handle_new_file_name(client, message):
     user_id = message.from_user.id
-    chat_id = message.chat.id
 
-    if user_id in ongoing_renames and chat_id in ongoing_renames[user_id]:
-        file_id, current_filename = ongoing_renames[user_id][chat_id]
+    if user_id in ongoing_renames:
+        chat_id, file_id, current_filename = ongoing_renames[user_id]
         new_file_name = message.text
 
         try:
