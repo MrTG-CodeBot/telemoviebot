@@ -1,5 +1,5 @@
-import logging
 import pyrogram
+import logging
 from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery 
 from pyrogram.errors import FloodWait
 import asyncio
@@ -71,7 +71,6 @@ async def handle_new_file_name(client, message):
         document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
 
     # Rename downloaded file
-    try:
   os.rename(document.file_name, new_file_name)
 
   # Upload renamed file with progress bar
