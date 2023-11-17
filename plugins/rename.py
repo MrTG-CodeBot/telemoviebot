@@ -5,10 +5,10 @@ import tqdm
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait
+from info import API_ID, API_HASH, BOT_TOKEN
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
 
 # Use a list to keep track of ongoing file renames
 ongoing_renames = {}
@@ -19,7 +19,7 @@ async def rename_document(client, message):
     file_id = message.document.file_id
     file_name = message.document.file_name
 
-    logging.info(f"Initiating file rename for fole_name: {file_name}, file_id: {file_id}")
+    logging.info(f"Initiating file rename for file_name: {file_name}, file_id: {file_id}")
 
     if message.document.file_size > 2097152000:
         await message.reply_text("Sorry, files larger than 2 GB cannot be renamed.")
@@ -52,24 +52,26 @@ async def handle_rename_callback(client, callback_query):
 async def handle_new_file_name(client, message):
     user_id = message.from_user.id
 
-    if user_id in ongoing_renames:
-        chat_id, file_id, current_filename = ongoing_renames[user_id]
-        new_file_name = message.text
-
-        try:
-            total_size = message.document.file_size
-            with tqdm.tqdm(total=total_size) as pbar:
-                document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
-        except FloodWait as e:
-            logging.warning(f"FloodWaitError during file download: {e}")
-            await asyncio.sleep(e.x)
-            document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
-
-        os.rename(document, new_file_name)
-
-        total_size = os.path.getsize(new_file_name)
-        with tqdm.tqdm(total=total_size) as pbar:
-            await client.send_document(chat_id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
-    else:
+    if user_id not in ongoing_renames:
         logging.error("File rename not initiated or already completed.")
+        return
 
+    chat_id, file_id, current_filename = ongoing_renames[user_id]
+    new_file_name = message.text
+
+    try:
+        total_size = message.document.file_size
+        with tqdm.tqdm(total=total_size) as pbar:
+            document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
+    except FloodWait as e:
+        logging.warning(f"FloodWaitError during file download: {e}")
+        await asyncio.sleep(e.x)
+        document = await client.download_media(file_id, progress_callback=lambda x: pbar.update(x))
+
+    os.rename(document, new_file_name)
+
+    total_size = os.path.getsize(new_file_name)
+    with tqdm.tqdm(total=total_size) as pbar:
+        await client.send_document(chat_id, new_file_name, caption=f"File renamed to {new_file_name}", progress_callback=lambda x: pbar.update(x))
+
+    del ongoing_renames[user_id]
