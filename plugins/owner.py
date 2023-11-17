@@ -1,9 +1,16 @@
 import pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from Script import script  # Import the Script module
-from info import API_ID, API_HASH, BOT_TOKEN  # Import the info module
+from Script import script
+from info import API_ID, API_HASH, BOT_TOKEN
 
+ ABOUT_TXT ="""<b>✯ Mʏ ɴᴀᴍᴇ: {}
+✯ Dᴇᴠᴇʟᴏᴩᴇʀ: <a href=https://t.me/Unni0240>ᴍʀ.ʙᴏᴛ ᴛɢ</a>
+✯ Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
+✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
+✯ Mʏ DᴀᴛᴀBᴀꜱᴇ: ᴍᴏɴɢᴏ-ᴅʙ
+✯ Mʏ Sᴇʀᴠᴇʀ: ʀᴇɴᴅᴇʀ
+✯ ᴠᴇʀꜱɪᴏɴ: {__version__}"""
 
 # Define the command handler
 @Client.on_message(filters.command("about") & filters.incoming & filters.private)
