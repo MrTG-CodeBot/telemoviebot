@@ -19,7 +19,7 @@ async def rename_document(client, message):
     file_id = message.document.file_id
     file_name = message.document.file_name
 
-    logging.info(f"Initiating file rename for file_id: {file_id}, file_name: {file_name}")
+    logging.info(f"Initiating file rename for fole_name: {file_name}, file_id: {file_id}")
 
     if message.document.file_size > 2097152000:
         await message.reply_text("Sorry, files larger than 2 GB cannot be renamed.")
