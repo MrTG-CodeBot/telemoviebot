@@ -13,7 +13,7 @@ I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
 ✯ Mʏ DᴀᴛᴀBᴀꜱᴇ: ᴍᴏɴɢᴏ-ᴅʙ
 ✯ Mʏ Sᴇʀᴠᴇʀ: ʀᴇɴᴅᴇʀ
-✯ ᴠᴇʀꜱɪᴏɴ: {__version__}"""
+✯ ᴠᴇʀꜱɪᴏɴ: {version}"""
 
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
