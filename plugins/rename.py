@@ -14,10 +14,10 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 ongoing_renames = {}
 
 # Define the command handler
-@Client.on_message(filters.command("rename") & filters.document)
+@Client.on_message(filters.command("rename") & filters.document & filters.private)
 async def rename_document(client, message):
-    file_id = message.document.file_id
     file_name = message.document.file_name
+    file_id = message.document.file_id
 
     logging.info(f"Initiating file rename for file_name: {file_name}, file_id: {file_id}")
 
