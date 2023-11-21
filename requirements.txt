@@ -6,7 +6,6 @@ marshmallow==3.14.1
 umongo==3.0.1
 pysrt
 requests
-openai
 tqdm
 charset_normalizer
 urllib3
