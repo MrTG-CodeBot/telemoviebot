@@ -18,6 +18,7 @@ wget
 aiofiles
 ffmpeg-python
 ffmpeg
+asyncio
 aiohttp
 PyPDF2
 ujson
