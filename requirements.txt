@@ -18,12 +18,13 @@ wget
 aiofiles
 ffmpeg-python
 ffmpeg
-aiohttp==3.8.0
+aiohttp
 PyPDF2
 ujson
 pyshorteners
 countryinfo
 psutil
+wheel
 datetime
 pytz
 dnspython
