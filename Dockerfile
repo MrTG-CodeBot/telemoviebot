@@ -1,18 +1,11 @@
-FROM python:3.10
+FROM python:3.9  
 
-WORKDIR /sakura
+RUN apt-get update && apt-get install -y python3-dev 
 
-# Copy the requirements.txt file from the host to the /sakura directory in the Docker image
-COPY requirements.txt /sakura/
 
-# Run the pip install command to install the Python dependencies
+WORKDIR /app
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-
-RUN pip install pyrogram 
-
-RUN pip install --upgrade pyrogram
-
-RUN pip install tqdm
 
 COPY ..
 
